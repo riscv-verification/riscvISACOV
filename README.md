@@ -90,5 +90,5 @@ From this definition, the Imperas' generator creates the source SystemVerilog fi
 ## Licensing
 The source files provided in this GitHub repository are all under the Apache 2.0 open source license.
 
-The files provided by Imperas in their products are released under their proprietary licensees - please contact them for more information.
+The files provided by Imperas in their products are released under their proprietary licenses - please contact them for more information.
 
