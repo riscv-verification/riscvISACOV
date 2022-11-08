@@ -1,0 +1,398 @@
+RV32ZFINX,F Standard Extension for Floating-Point in Integer Registers,1.0
+xlen,32
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverage,Pass/Fail Criteria,Test Type,Coverage Method
+RV32ZFINX,"F,Zfinx",fadd.s,,fadd_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fclass.s,,fclass_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fcvt.s.w,,fcvt_s_w_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_rs1,FD RS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fcvt.s.wu,,fcvt_s_wu_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_rs1,FD RS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fcvt.w.s,,fcvt_w_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fcvt.wu.s,,fcvt_wu_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fdiv.s,,fdiv_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",feq.s,,feq_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fle.s,,fle_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",flt.s,,flt_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_fs1,RD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fmadd.s,,fmadd_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3,FS3 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3_vals,FS3 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_frm,FS3 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_vals,FS3 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs3,FD FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fmax.s,,fmax_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fmin.s,,fmin_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fmsub.s,,fmsub_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3,FS3 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3_vals,FS3 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_frm,FS3 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_vals,FS3 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs3,FD FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fmul.s,,fmul_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fnmadd.s,,fnmadd_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3,FS3 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3_vals,FS3 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_frm,FS3 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_vals,FS3 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs3,FD FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fnmsub.s,,fnmsub_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3,FS3 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs3_vals,FS3 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_frm,FS3 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs3_vals,FS3 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs3,FD FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fsgnj.s,,fsgnj_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fsgnjn.s,,fsgnjn_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fsgnjx.s,,fsgnjx_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fsqrt.s,,fsqrt_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZFINX,"F,Zfinx",fsub.s,,fsub_s_cg,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd,FD (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1,FS1 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2,FS2 (FPR) register assignment,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_frm,Floating Point FRM (Rounding mode) given as an operand,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,"Value of fcsr CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_fflags,"Value of fcsr CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_frm_frm,"Value of frm CSR, frm field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fflags_fflags,"Value of fflags CSR, fflags field",Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fd_vals,FD FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs1_vals,FS1 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_fs2_vals,FS2 FPU Special values,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_frm,FD FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_frm,FS2 FRM (ins rounding mode) Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_vals,FD FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_vals,FS1 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs2_vals,FS2 FPU values Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs1,FD FS1 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fd_fs2,FD FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_fs1_fs2,FS1 FS2 Cross,Check against Reference Model,Constrained-Random,Functional Coverage

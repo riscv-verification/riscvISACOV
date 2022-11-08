@@ -1,0 +1,4 @@
+RV32ZCBZBA,Zcb Code Size Reduction extension and Zba Bitmanip,1.0.0
+xlen,32
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverage,Pass/Fail Criteria,Test Type,Coverage Method
