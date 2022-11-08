@@ -81,7 +81,7 @@ This necessary part of the verificaiton project is:
 To automatically generate source functional coverage VIPs that can be used for many different core configurations/implementations.
 
 ## Imperas provides source automatically generated
-Within Imperas there is a machine readable definition of the RISC-V ISA architectrural definition.
+Within Imperas there is a machine readable definition of the RISC-V ISA architectural definition.
 
 From this definition, the Imperas' generator creates the source SystemVerilog files that are provided in the project.
 
