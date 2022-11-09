@@ -8,15 +8,15 @@ This work is driven by Imperas with requirements from the OpenHW Group [ARVM-Fun
 ## Downloading and Versions
 Each time a release is made in this GitHub repository it is a put in different branch. The default branch is the latest release. If you need earlier releases - use one of the previous branches.
 
-This repository contains the initial coverage source files with others available in the collaborative OpenHW projects and the Imperas product releases.
+This repository contains the initial coverage source files for the RV32I extension, with others available in the collaborative OpenHW projects and the Imperas product releases.
 
-## Available source SystemVerilog Functional Coverage
+## Available SystemVerilog Functional Coverage source code
 Information and details on the available coverage is here: [documentation](documentation)
 
 ## Using RVVI
 The riscvISACOV code is independent of specific RISC-V core features and is targeting the ratified RISC-V International specification of the RISC-V ISA.
 
-riscvISACOV has been developed and structured to connect to the open standard [RVVI-TRACE](https://github.com/riscv-verification/RVVI) technology making it easy to adopt and use in various RISC-V commercial and open source projects.
+riscvISACOV has been developed and structured to connect to the open standard [RVVI-TRACE](https://github.com/riscv-verification/RVVI) interface making it easy to adopt and use in various RISC-V commercial and open source projects.
 
 <p align="left"><img height="500" src="images/RVVI-functional-coverage.jpg" /></p>
 
