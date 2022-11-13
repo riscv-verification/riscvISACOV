@@ -17,11 +17,8 @@
 //
 //
  
-// This file is a work in progress and is currently being worked on for the full CSR functionality
-// This currently is just some sample CSRs.
-
-function int get_csr_val(int hart, int issue, int after, string name, string field, asm);
-    int addr = get_csr_addr(name, asm);
+function int get_csr_val(int hart, int issue, int after, string name, string field);
+    int addr = get_csr_addr(name);
 
     int val;
     if (after == 1) val = this.rvvi.csr[hart][issue][addr];
@@ -38,7 +35,7 @@ function int get_csr_val(int hart, int issue, int after, string name, string fie
 endfunction
 
 
-function int get_csr_addr (string s, asm);
+function int get_csr_addr (string s);
     case (s)
         "fflags"       : return 'h1;
         "frm"       : return 'h2;
@@ -50,7 +47,7 @@ function int get_csr_addr (string s, asm);
         "mstatus"       : return 'h300;
         "mepc"       : return 'h341;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_csr_addr(%0s) not found csr for (%0s)", s, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_csr_addr(%0s) not found csr", s);
             $finish(-1);
         end
     endcase

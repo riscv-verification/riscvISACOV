@@ -16,39 +16,39 @@
 // limitations under the License.
 //
 //
-  
+ 
 // SystemVerilog Functional Coverage Available for extensions: 
 //   RV32I
-//   RV32M
-//   RV32F
-//   RV32ZFINX
-//   RV32C
-//   RV32ZCA
-//   RV32ZCFZFINX
-//   RV32ZCF
-//   RV32ZCD
-//   RV32ZCB
-//   RV32ZCBZBA
-//   RV32ZCBZBB
-//   RV32ZCBZMUL
-//   RV32ZCMP
-//   RV32ZCMT
 
-// Uncomment to enable
-//`define COVER_RV32I
-//`define COVER_RV32M
-//`define COVER_RV32F
-//`define COVER_RV32ZFINX
-//`define COVER_RV32C
-//`define COVER_RV32ZCA
-//`define COVER_RV32ZCFZFINX
-//`define COVER_RV32ZCF
-//`define COVER_RV32ZCD
-//`define COVER_RV32ZCB
-//`define COVER_RV32ZCBZBA
-//`define COVER_RV32ZCBZBB
-//`define COVER_RV32ZCBZMUL
-//`define COVER_RV32ZCMP
-//`define COVER_RV32ZCMT
+//////////////////////////
+// Select Coverage Level// 
+//////////////////////////
+// Uncomment one of these (higher cover levels enable lower levels):
+
+// Compliance Basic
+//`define COVER_LEVEL_COMPL_BAS
+
+// Compliance Extended
+//`define COVER_LEVEL_COMPL_EXT
+
+// DV Un-privileged Basic
+//`define COVER_LEVEL_DV_UP_BAS
+
+// DV Un-privileged Extended
+//`define COVER_LEVEL_DV_UP_EXT
+
+// DV Privileged Basic
+//`define COVER_LEVEL_DV_PR_BAS
+
+// DV Privileged Extended
+`define COVER_LEVEL_DV_PR_EXT
+
+
+//////////////////////
+// Select Extensions//
+//////////////////////
+// Comment out to disable
+`define COVER_RV32I
+//`define COVER_RV32I_ILLEGAL
  
 

@@ -17,6 +17,69 @@
 //
 //
  
+
+`ifdef COVER_LEVEL_COMPL_BAS
+`endif
+`ifdef COVER_LEVEL_COMPL_EXT
+  `ifndef COVER_LEVEL_COMPL_BAS
+    `define COVER_LEVEL_COMPL_BAS
+  `endif
+`endif
+`ifdef COVER_LEVEL_DV_UP_BAS
+  `ifndef COVER_LEVEL_COMPL_BAS
+    `define COVER_LEVEL_COMPL_BAS
+  `endif
+  `ifndef COVER_LEVEL_COMPL_EXT
+    `define COVER_LEVEL_COMPL_EXT
+  `endif
+`endif
+`ifdef COVER_LEVEL_DV_UP_EXT
+  `ifndef COVER_LEVEL_COMPL_BAS
+    `define COVER_LEVEL_COMPL_BAS
+  `endif
+  `ifndef COVER_LEVEL_COMPL_EXT
+    `define COVER_LEVEL_COMPL_EXT
+  `endif
+  `ifndef COVER_LEVEL_DV_UP_BAS
+    `define COVER_LEVEL_DV_UP_BAS
+  `endif
+`endif
+`ifdef COVER_LEVEL_DV_PR_BAS
+  `ifndef COVER_LEVEL_COMPL_BAS
+    `define COVER_LEVEL_COMPL_BAS
+  `endif
+  `ifndef COVER_LEVEL_COMPL_EXT
+    `define COVER_LEVEL_COMPL_EXT
+  `endif
+  `ifndef COVER_LEVEL_DV_UP_BAS
+    `define COVER_LEVEL_DV_UP_BAS
+  `endif
+  `ifndef COVER_LEVEL_DV_UP_EXT
+    `define COVER_LEVEL_DV_UP_EXT
+  `endif
+`endif
+`ifdef COVER_LEVEL_DV_PR_EXT
+  `ifndef COVER_LEVEL_COMPL_BAS
+    `define COVER_LEVEL_COMPL_BAS
+  `endif
+  `ifndef COVER_LEVEL_COMPL_EXT
+    `define COVER_LEVEL_COMPL_EXT
+  `endif
+  `ifndef COVER_LEVEL_DV_UP_BAS
+    `define COVER_LEVEL_DV_UP_BAS
+  `endif
+  `ifndef COVER_LEVEL_DV_UP_EXT
+    `define COVER_LEVEL_DV_UP_EXT
+  `endif
+  `ifndef COVER_LEVEL_DV_PR_BAS
+    `define COVER_LEVEL_DV_PR_BAS
+  `endif
+`endif
+
+`define SAMPLE_BEFORE 0
+`define SAMPLE_AFTER 1
+`define MCAUSE_ILLEGAL_INST 2
+
 typedef struct { 
     string key;
     string val;
@@ -140,7 +203,7 @@ typedef enum {
     c_ra_s0_s11
 } stack_reg_list_t;
 
-function stack_reg_list_t get_sreg_list (string key, asm); 
+function stack_reg_list_t get_sreg_list (string key); 
     case (key)
         "{ra}":    return c_ra;
         "{ra,s0}": return c_ra_s0;
@@ -155,7 +218,7 @@ function stack_reg_list_t get_sreg_list (string key, asm);
         "{ra,s0-s9}": return c_ra_s0_s9;
         "{ra,s0-s11}": return c_ra_s0_s11;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_sreg_list(%0s) not found sreg list for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_sreg_list(%0s) not found sreg list", key);
             $finish(-1);
         end
     endcase
@@ -174,7 +237,7 @@ typedef enum {
         } csr_name_t;
 
 
-function gpr_name_t get_gpr_reg (string key, asm); 
+function gpr_name_t get_gpr_reg (string key); 
     case (key)
         "x0": return x0;
         "x1": return x1;
@@ -209,13 +272,13 @@ function gpr_name_t get_gpr_reg (string key, asm);
         "x30": return x30;
         "x31": return x31;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_reg(%0s) not found gpr for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_reg(%0s) not found gpr", key);
             $finish(-1);
         end
         endcase
 endfunction
 
-function sreg_name_t get_stack_reg (string key, asm); 
+function sreg_name_t get_stack_reg (string key); 
     case (key)
         "s0": return s0;
         "s1": return s1;
@@ -226,13 +289,13 @@ function sreg_name_t get_stack_reg (string key, asm);
         "s6": return s6;
         "s7": return s7;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_stack_reg(%0s) not found sreg for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_stack_reg(%0s) not found sreg for", key);
             $finish(-1);
         end
         endcase
 endfunction
 
-function gpr_reduced_name_t get_gpr_c_reg (string key, asm); 
+function gpr_reduced_name_t get_gpr_c_reg (string key); 
     case (key)
         "x8": return c_x8;
         "x9": return c_x9;
@@ -243,7 +306,7 @@ function gpr_reduced_name_t get_gpr_c_reg (string key, asm);
         "x14": return c_x14;
         "x15": return c_x15;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_c_reg(%0s) not found gpr for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_c_reg(%0s) not found gpr", key);
             $finish(-1);
         end
         endcase
@@ -287,7 +350,7 @@ function int get_gpr_num(string key);
     return -1;
 endfunction
 
-function fpr_name_t get_fpr_reg (string key, asm);
+function fpr_name_t get_fpr_reg (string key);
     case (key)
         "f0": return f0;
         "f1": return f1;
@@ -322,13 +385,13 @@ function fpr_name_t get_fpr_reg (string key, asm);
         "f30": return f30;
         "f31": return f31;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_reg(%0s) not found fpr for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_reg(%0s) not found fpr", key);
             $finish(-1);
         end
     endcase
 endfunction
 
-function fpr_reduced_name_t get_fpr_c_reg (string key, asm);
+function fpr_reduced_name_t get_fpr_c_reg (string key);
     case (key)
         "f8": return c_f8;
         "f9": return c_f9;
@@ -339,7 +402,7 @@ function fpr_reduced_name_t get_fpr_c_reg (string key, asm);
         "f14": return c_f14;
         "f15": return c_f15;
         default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_c_reg(%0s) not found fpr for (%0s)", key, asm);
+            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_c_reg(%0s) not found fpr", key);
             $finish(-1);
         end
     endcase
@@ -387,7 +450,7 @@ endfunction
 
 
 
-function int get_imm(string s, asm);
+function int get_imm(string s);
     int val;
     if (s[1] == "x") begin
         s = s.substr(2,s.len()-1);
@@ -401,7 +464,7 @@ function int get_imm(string s, asm);
     return val;
 endfunction
 
-function int get_spimm(string s, asm);
+function int get_spimm(string s);
     int val;
     if (s[1] == "x") begin
         s = s.substr(2,s.len()-1);

@@ -25,61 +25,55 @@ typedef struct {
     ops_t ops[5];
     int hart;
     int issue;
+    bit trap;
 } ins_rv32i_t;
 
 
 covergroup addi_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add signed immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "addi" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "addi"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "ADDI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "ADDI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "ADDI") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -146,8 +140,7 @@ covergroup addi_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -214,77 +207,69 @@ covergroup addi_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup ori_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Or signed immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "ori" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "ori"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "ORI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "ORI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "ORI") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -351,8 +336,7 @@ covergroup ori_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -419,77 +403,69 @@ covergroup ori_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup andi_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "And signed immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "andi" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "andi"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "ANDI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "ANDI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "ANDI") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -556,8 +532,7 @@ covergroup andi_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -624,45 +599,43 @@ covergroup andi_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lui_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Upper Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "lui" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lui"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LUI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -729,37 +702,36 @@ covergroup lui_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup auipc_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add upper immediate to PC";
-
-    cp_asm_count : coverpoint ins.ins_str == "auipc" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "auipc"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "AUIPC") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -826,31 +798,31 @@ covergroup auipc_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup jal_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Jump and Link";
-
-    cp_asm_count : coverpoint ins.ins_str == "jal" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "jal"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "JAL") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -917,37 +889,36 @@ covergroup jal_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup jalr_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Jump and Link, register";
-
-    cp_asm_count : coverpoint ins.ins_str == "jalr" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "jalr"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "JALR") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "JALR") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1014,69 +985,62 @@ covergroup jalr_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup beq_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Equal";
-
-    cp_asm_count : coverpoint ins.ins_str == "beq" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "beq"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BEQ") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BEQ") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BEQ") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1143,8 +1107,7 @@ covergroup beq_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1211,77 +1174,69 @@ covergroup beq_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup bne_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Not Equal";
-
-    cp_asm_count : coverpoint ins.ins_str == "bne" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "bne"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BNE") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BNE") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BNE") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1348,8 +1303,7 @@ covergroup bne_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1416,77 +1370,69 @@ covergroup bne_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup blt_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Less Than";
-
-    cp_asm_count : coverpoint ins.ins_str == "blt" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "blt"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BLT") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BLT") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BLT") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1553,8 +1499,7 @@ covergroup blt_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1621,77 +1566,69 @@ covergroup blt_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup bge_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Greater or Equal";
-
-    cp_asm_count : coverpoint ins.ins_str == "bge" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "bge"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BGE") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BGE") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BGE") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1758,8 +1695,7 @@ covergroup bge_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1826,77 +1762,69 @@ covergroup bge_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup bltu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Less Than Unsigned";
-
-    cp_asm_count : coverpoint ins.ins_str == "bltu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "bltu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BLTU") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BLTU") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BLTU") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -1963,8 +1891,7 @@ covergroup bltu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2031,77 +1958,69 @@ covergroup bltu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup bgeu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Greater or Equal Unsigned";
-
-    cp_asm_count : coverpoint ins.ins_str == "bgeu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "bgeu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key, "BGEU") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key, "BGEU") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_offset : coverpoint get_imm(ins.ops[2].key, "BGEU") {
+    cp_offset : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Branch Immediate Offset value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_nord_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rs1_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2168,8 +2087,7 @@ covergroup bgeu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2236,45 +2154,43 @@ covergroup bgeu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lb_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Byte (8-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "lb" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lb"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LB") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "LB") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2341,37 +2257,36 @@ covergroup lb_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lh_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Half word (16-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "lh" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lh"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LH") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "LH") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2438,37 +2353,36 @@ covergroup lh_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lw_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Word (32-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "lw" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lw"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LW") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "LW") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2535,37 +2449,36 @@ covergroup lw_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lbu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Unsigned Byte (8-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "lbu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lbu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LBU") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "LBU") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2632,37 +2545,36 @@ covergroup lbu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup lhu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Unsigned Half word (16-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "lhu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "lhu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "LHU") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "LHU") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2729,37 +2641,36 @@ covergroup lhu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sb_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Byte (8-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "sb" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sb"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key, "SB") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[1].key, "SB") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2826,37 +2737,36 @@ covergroup sb_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sh_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Half-word (16-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "sh" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sh"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key, "SH") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[1].key, "SH") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -2923,37 +2833,36 @@ covergroup sh_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sw_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Word (32-bit)";
-
-    cp_asm_count : coverpoint ins.ins_str == "sw" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sw"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key, "SW") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[1].key, "SW") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3020,63 +2929,57 @@ covergroup sw_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup slti_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less than Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "slti" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "slti"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLTI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLTI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "SLTI") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3143,8 +3046,7 @@ covergroup slti_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3211,71 +3113,64 @@ covergroup slti_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sltiu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less than Immediate Unsigned";
-
-    cp_asm_count : coverpoint ins.ins_str == "sltiu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sltiu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLTIU") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLTIU") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "SLTIU") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3342,8 +3237,7 @@ covergroup sltiu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3410,77 +3304,69 @@ covergroup sltiu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup xori_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Exlusive-OR Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "xori" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "xori"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "XORI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "XORI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_imm_sign : coverpoint get_imm(ins.ops[2].key, "XORI") {
+    cp_imm_sign : coverpoint get_imm(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "Immediate value sign";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign {
+    cr_rs1_imm : cross cp_rs1_sign,cp_imm_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and Imm sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3547,8 +3433,7 @@ covergroup xori_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3615,67 +3500,61 @@ covergroup xori_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup slli_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Left Logical Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "slli" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "slli"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLLI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLLI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3742,8 +3621,7 @@ covergroup slli_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3810,67 +3688,61 @@ covergroup slli_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup srli_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Logical Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "srli" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "srli"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SRLI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SRLI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -3937,8 +3809,7 @@ covergroup srli_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4005,67 +3876,61 @@ covergroup srli_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup srai_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Arithmetic Immediate";
-
-    cp_asm_count : coverpoint ins.ins_str == "srai" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "srai"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SRAI") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SRAI") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4132,8 +3997,7 @@ covergroup srai_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4200,105 +4064,92 @@ covergroup srai_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup add_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add";
-
-    cp_asm_count : coverpoint ins.ins_str == "add" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "add"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "ADD") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "ADD") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "ADD") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4365,8 +4216,7 @@ covergroup add_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4433,8 +4283,7 @@ covergroup add_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4501,113 +4350,99 @@ covergroup add_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sub_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Subtract";
-
-    cp_asm_count : coverpoint ins.ins_str == "sub" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sub"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SUB") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SUB") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SUB") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4674,8 +4509,7 @@ covergroup sub_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4742,8 +4576,7 @@ covergroup sub_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4810,103 +4643,91 @@ covergroup sub_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sll_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Left Logical";
-
-    cp_asm_count : coverpoint ins.ins_str == "sll" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sll"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLL") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLL") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SLL") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -4973,8 +4794,7 @@ covergroup sll_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5041,8 +4861,7 @@ covergroup sll_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5109,107 +4928,94 @@ covergroup sll_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup slt_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less Than";
-
-    cp_asm_count : coverpoint ins.ins_str == "slt" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "slt"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLT") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLT") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SLT") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5276,8 +5082,7 @@ covergroup slt_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5344,8 +5149,7 @@ covergroup slt_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5412,107 +5216,94 @@ covergroup slt_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sltu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less Than Unsigned";
-
-    cp_asm_count : coverpoint ins.ins_str == "sltu" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sltu"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SLTU") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SLTU") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SLTU") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5579,8 +5370,7 @@ covergroup sltu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5647,8 +5437,7 @@ covergroup sltu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5715,113 +5504,99 @@ covergroup sltu_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup xor_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Exlusive OR";
-
-    cp_asm_count : coverpoint ins.ins_str == "xor" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "xor"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "XOR") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "XOR") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "XOR") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5888,8 +5663,7 @@ covergroup xor_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -5956,8 +5730,7 @@ covergroup xor_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6024,103 +5797,91 @@ covergroup xor_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup srl_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Logical";
-
-    cp_asm_count : coverpoint ins.ins_str == "srl" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "srl"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SRL") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SRL") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SRL") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6187,8 +5948,7 @@ covergroup srl_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6255,8 +6015,7 @@ covergroup srl_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6323,103 +6082,91 @@ covergroup srl_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup sra_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Arithmetic";
-
-    cp_asm_count : coverpoint ins.ins_str == "sra" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "sra"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "SRA") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "SRA") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "SRA") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6486,8 +6233,7 @@ covergroup sra_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6554,8 +6300,7 @@ covergroup sra_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6622,113 +6367,99 @@ covergroup sra_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup or_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "OR";
-
-    cp_asm_count : coverpoint ins.ins_str == "or" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "or"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "OR") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "OR") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "OR") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6795,8 +6526,7 @@ covergroup or_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6863,8 +6593,7 @@ covergroup or_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -6931,113 +6660,99 @@ covergroup or_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 covergroup and_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "AND";
-
-    cp_asm_count : coverpoint ins.ins_str == "and" {
+    
+    cp_asm_count : coverpoint ins.ins_str == "and"  iff (ins.trap == 0) {
         option.comment = "Number of times instruction is executed";
         bins count[]  = {1};
     }
-    
-    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key, "AND") {
+    cp_rd : coverpoint get_gpr_reg(ins.ops[0].key)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) register assignment";
     }
-    
-    cp_rd_sign : coverpoint int'(ins.ops[0].val) {
+    cp_rd_sign : coverpoint int'(ins.ops[0].val)  iff (ins.trap == 0) {
         option.comment = "RD (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key, "AND") {
+    cp_rs1 : coverpoint get_gpr_reg(ins.ops[1].key)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) register assignment";
     }
-    
-    cp_rs1_sign : coverpoint int'(ins.ops[1].val) {
+    cp_rs1_sign : coverpoint int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "RS1 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key, "AND") {
+    cp_rs2 : coverpoint get_gpr_reg(ins.ops[2].key)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) register assignment";
     }
-    
-    cp_rs2_sign : coverpoint int'(ins.ops[2].val) {
+    cp_rs2_sign : coverpoint int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "RS2 (GPR) sign of value";
         bins neg  = {[$:-1]};
         bins pos  = {[1:$]};
     }
-    
-    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign {
+    cr_rs1_rs2 : cross cp_rs1_sign,cp_rs2_sign  iff (ins.trap == 0) {
         option.comment = "Cross coverage of RS1 sign and RS2 sign";
     }
-    
-    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+
+`ifdef COVER_LEVEL_COMPL_EXT
+    cmp_rd_rs1_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val) {
+    cmp_rd_rs1_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[1].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS1 register values";
         bins rd_eqval_rs1  = {1};
         bins rd_neval_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key {
+    cmp_rd_rs2_eq : coverpoint ins.ops[0].key == ins.ops[1].key  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register assignment";
         bins rd_eq_rs1  = {1};
         bins rd_ne_rs1  = {0};
     }
-    
-    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val) {
+    cmp_rd_rs2_eqval : coverpoint int'(ins.ops[0].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RD and RS2 register values";
         bins rd_eqval_rs2  = {1};
         bins rd_neval_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key {
+    cmp_rs1_rs2_eq : coverpoint ins.ops[1].key == ins.ops[2].key  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register assignment";
         bins rs1_eq_rs2  = {1};
         bins rs1_ne_rs2  = {0};
     }
-    
-    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val) {
+    cmp_rs1_rs2_eqval : coverpoint int'(ins.ops[1].val) == int'(ins.ops[2].val)  iff (ins.trap == 0) {
         option.comment = "Compare RS1 and RS2 register values";
         bins rs1_eqval_rs2  = {1};
         bins rs1_neval_rs2  = {0};
     }
-    
-    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_toggle : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -7104,8 +6819,7 @@ covergroup and_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_toggle : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RS1 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -7172,8 +6886,7 @@ covergroup and_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_toggle : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RS2 Toggle bits";
         wildcard bins bit_0_0  = {32'b???????????????????????????????0};
         wildcard bins bit_1_0  = {32'b??????????????????????????????0?};
@@ -7240,31 +6953,29 @@ covergroup and_cg with function sample(ins_rv32i_t ins);
         wildcard bins bit_30_1  = {32'b?1??????????????????????????????};
         wildcard bins bit_31_1  = {32'b1???????????????????????????????};
     }
-    
-    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val)) {
+    cp_rd_maxvals : coverpoint unsigned'(int'(ins.ops[0].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val)) {
+    cp_rs1_maxvals : coverpoint unsigned'(int'(ins.ops[1].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
-    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val)) {
+    cp_rs2_maxvals : coverpoint unsigned'(int'(ins.ops[2].val))  iff (ins.trap == 0) {
         option.comment = "RD Max values";
         bins zeros  = {0};
         bins min  = {32'b1000000000000000000000000000000};
         bins max  = {32'b0111111111111111111111111111111};
         bins ones  = {32'b1111111111111111111111111111111};
     }
-    
+`endif
+
 endgroup
 
 
@@ -7278,6 +6989,7 @@ function ins_rv32i_t get_rv32i_inst(bit trap, int hart, int issue, string disass
     end
     ins.hart = hart;
     ins.issue = issue;
+    ins.trap = trap;
     num = $sscanf (s, "%s %s %s %s %s %s %s %s", insbin, ins_str, op[0], op[1], op[2], op[3], op[4], op[5]);
     ins.ins_str = ins_str;
     //$display("num(%d) ins_str(%s) op[0](%0s) op[1](%s) op[2](%s) op[3](%s)", num, ins_str, op[0], op[1], op[2], op[3]);
