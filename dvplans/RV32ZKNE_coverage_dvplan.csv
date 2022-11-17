@@ -1,0 +1,14 @@
+RV32ZKNE,"K Cryptography Extensions, NIST Suite: AES Encryption",1.0
+xlen,32
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV32ZKNE,"Zk,Zkn,Zkne",aes32esi,AES Encrypt SubBytes,aes32esi_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32ZKNE,"Zk,Zkn,Zkne",aes32esmi,AES Encrypt SubBytes and MixColumns,aes32esmi_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
