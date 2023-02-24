@@ -53,7 +53,7 @@ Coverpoints DV Un-privileged Basic:  119
 |                       |                |            |             | cp_csr_fflags_fflags | Value of fflags CSR, fflags field | Compliance Basic
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended
@@ -67,7 +67,7 @@ Coverpoints DV Un-privileged Basic:  119
 |                       |                |            |             | cp_csr_fflags_fflags | Value of fflags CSR, fflags field | Compliance Basic
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended
@@ -161,7 +161,7 @@ Coverpoints DV Un-privileged Basic:  119
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended
 | RV32F                 |        F,Zfinx |    fmadd-s |  fmadd_s_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
@@ -399,7 +399,7 @@ Coverpoints DV Un-privileged Basic:  119
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cr_fs2_vals | FS2 FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |  cr_fs2_rs1 | FS2 RS1 Cross | Compliance Extended
@@ -416,7 +416,7 @@ Coverpoints DV Un-privileged Basic:  119
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended
 

@@ -40,7 +40,8 @@ Compliance Basic,
 ,"Value of frm CSR, fflags field"
 ,Immediate value (basic)
 ,Stack register List
-,Stack adjust value
+,Stack adjust value (push)
+,Stack adjust value (popd)
 ,Sreg register assignment
 ,JVT index
 ,
@@ -56,6 +57,10 @@ Compliance Extended,
 ,RS2P Toggle bits
 ,RD Max values
 ,RDP Max values
+,RS1 Max values
+,RS1P Max values
+,RS2 Max values
+,RS2P Max values
 ,FD FRM (ins rounding mode) Cross
 ,FS1 FRM (ins rounding mode) Cross
 ,FS2 FRM (ins rounding mode) Cross
@@ -73,7 +78,14 @@ Compliance Extended,
 ,Sreg1 Max values
 ,Sreg2 Toggle bits
 ,Sreg2 Max values
-,Cross coverage of sreg list and stack adjust
+,Cross coverage of sreg list and stack adjust (push)
+,Cross coverage of sreg list and stack adjust (pop)
+,register store during which fault occurred
+,register load during which fault occurred
+,sequence step during which fault occurred (push)
+,sequence step during which fault occurred (pop)
+,Type of Fault that occurred during load
+,Type of Fault that occurred during store
 ,
 DV Un-privileged Basic,
 ,FD FPU Special values

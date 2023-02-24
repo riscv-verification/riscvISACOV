@@ -1,9 +1,9 @@
-# riscvISACOV: RISC-V SystemVerilog Functional Coverage: RV32ZCBZBA
+# riscvISACOV: RISC-V SystemVerilog Functional Coverage: RV64ZCD
 
-ISA Extension: RV32ZCBZBA  
-Specification: Zcb Code Size Reduction extension and Zba Bitmanip  
+ISA Extension: RV64ZCD  
+Specification: Zcd Code Size Reduction extension for previous double precision FP loads/stores  
 Version:       1.0.0  
-XLEN:          32  
+XLEN:          64  
 
 Instructions:  0  
 Covergroups:   0  

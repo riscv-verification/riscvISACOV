@@ -1,5 +1,7 @@
 //
-// Copyright (c) 2022 Imperas Software Ltd., www.imperas.com
+// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com
+// 
+// SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,45 +21,51 @@
  
 package RISCV_coverage_pkg;
 
+import rvviPkg::*;
+import rvviApiPkg::*;
+
 `include "coverage/RISCV_coverage_common.svh"
 
-class RISCV_coverage;
-
-    // Todo: Copied these here for now to make a delayed csr for getting before and after values.  
-    //       Look into moving these delayed/pipelined values up to rvvi or trace2cov level instead.
-    parameter int ILEN   = 32;  // Instruction length in bits
-    parameter int XLEN   = 32;  // GPR length in bits
-    parameter int FLEN   = 32;  // FPR length in bits
-    parameter int VLEN   = 256; // Vector register size in bits
-    parameter int NHART  = 1;   // Number of harts reported
-    parameter int RETIRE = 1;    // Number of instructions that can retire during valid event
+class RISCV_coverage
+#(
+    parameter int ILEN   = 32,  // Instruction length in bits
+    parameter int XLEN   = 32,  // GPR length in bits
+    parameter int FLEN   = 32,  // FPR length in bits
+    parameter int VLEN   = 256, // Vector register size in bits
+    parameter int NHART  = 1,   // Number of harts reported
+    parameter int RETIRE = 1    // Number of instructions that can retire during valid event
+);
 
     `include "coverage/RISCV_coverage_csr.svh"
+    `include "coverage/RISCV_coverage_exceptions.svh"
 
     `ifdef COVER_RV32I
         `ifdef COVER_RV32I_ILLEGAL
-            $error("Cannot select both COVER_RV32I and COVER_RV32I_ILLEGAL");
+            $fatal("Cannot select both COVER_RV32I and COVER_RV32I_ILLEGAL");
+        `endif
+        `ifdef COVER_BASE_RV64I
+              $fatal("Cannot use COVER_RV32I with COVER_BASE_RV64I");
         `else
-            `include "coverage/RV32I_coverage.svh"
+            `include "coverage/RV32I_coverage.svh"     
         `endif
     `endif
     `ifdef COVER_RV32I_ILLEGAL
         `include "coverage/RV32I_illegal_coverage.svh"
     `endif
 
-    virtual rvviTrace rvvi;
+    virtual rvviTrace #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvvi;
 
     // Todo: Look into moving these delayed/pipelined values up to rvvi or trace2cov level instead.
     reg [4095:0][(XLEN-1):0] csr_prev        [(NHART-1):0][(RETIRE-1):0];
 
     
 
-    function new(virtual rvviTrace rvvi);
+    function new(virtual rvviTrace #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvvi);
    
         this.rvvi = rvvi;
 
     `ifdef COVER_RV32I
-        `include "coverage/RV32I_coverage_init.svh"
+    `include "coverage/RV32I_coverage_init.svh"
     `endif
     `ifdef COVER_RV32I_ILLEGAL
         `include "coverage/RV32I_coverage_init.svh"
@@ -79,7 +87,7 @@ class RISCV_coverage;
         return ins_str;
     endfunction
 
-    function sample_extensions(bit trap, int hart, int issue, string disass);
+    function void sample_extensions(bit trap, int hart, int issue, string disass);
 
         string inst_name = get_inst_name(trap, hart, issue, disass);
         
@@ -95,3 +103,4 @@ endclass
 
 
 endpackage
+

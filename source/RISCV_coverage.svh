@@ -1,5 +1,7 @@
 //
-// Copyright (c) 2022 Imperas Software Ltd., www.imperas.com
+// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com
+// 
+// SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +25,16 @@
 
 import RISCV_coverage_pkg::*;
  
-class coverage extends RISCV_coverage;
+class coverage #(
+        parameter int ILEN   = 32,  // Instruction length in bits
+        parameter int XLEN   = 32,  // GPR length in bits
+        parameter int FLEN   = 32,  // FPR length in bits
+        parameter int VLEN   = 256, // Vector register size in bits
+        parameter int NHART  = 1,   // Number of harts reported
+        parameter int RETIRE = 1    // Number of instructions that can retire during valid event
+) extends RISCV_coverage #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE);
  
-    function new(virtual rvviTrace rvvi);
+    function new(virtual rvviTrace #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvvi);
         super.new(rvvi);
 
         // Initialize custom covergroups here 

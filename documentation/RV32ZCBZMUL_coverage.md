@@ -19,6 +19,6 @@ Coverpoints Compliance Extended:  4
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
 |                       |                |            |             | cp_rs2p_toggle | RS2P Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs2p_maxvals | RDP Max values | Compliance Extended
+|                       |                |            |             | cp_rs2p_maxvals | RS2P Max values | Compliance Extended
 
 

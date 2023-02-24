@@ -1,0 +1,9 @@
+RV64ZCBZBA,Zcb Code Size Reduction extension and Zba Bitmanip,1.0.0
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV64ZCBZBA,ZcbZba,c.zext.w,"Zero extend word, 16-bit encoding",c_zext_w_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rdp,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rdp_toggle,RDP Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rdp_maxvals,RDP Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage

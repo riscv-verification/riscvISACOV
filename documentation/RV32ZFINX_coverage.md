@@ -53,7 +53,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             | cp_csr_fflags_fflags | Value of fflags CSR, fflags field | Compliance Basic
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended
@@ -67,7 +67,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             | cp_csr_fflags_fflags | Value of fflags CSR, fflags field | Compliance Basic
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
 |                       |                |            |             |   cr_fd_rs1 | FD RS1 Cross | Compliance Extended

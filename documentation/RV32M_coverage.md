@@ -31,8 +31,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |        M,Zmmul |       mulh |     mulh_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -51,8 +51,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |        M,Zmmul |     mulhsu |   mulhsu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -71,8 +71,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |        M,Zmmul |      mulhu |    mulhu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -91,8 +91,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |              M |        div |      div_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -111,8 +111,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |              M |       divu |     divu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -131,8 +131,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |              M |        rem |      rem_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -151,8 +151,8 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV32M                 |              M |       remu |     remu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -171,7 +171,7 @@ Coverpoints Compliance Extended:  96
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs2_toggle | RS2 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs1_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_rs2_maxvals | RD Max values | Compliance Extended
+|                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
+|                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 
 

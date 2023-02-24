@@ -1,0 +1,44 @@
+RV64ZBA,"B Standard Extension for Bit-Manipulation, accelerate the generation of addresses",1.0
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV64ZBA,"B,Zba",sh1add,"Shift Left 1, then add",sh1add_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",sh2add,"Shift Left 2, then add",sh2add_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",sh3add,"Shift Left 3, then add",sh3add_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",add.uw,Add unsigned word,add_uw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",sh1add.uw,"Shift Left 1, then add",sh1add_uw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",sh2add.uw,"Shift Left 2, then add",sh2add_uw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",sh3add.uw,"Shift Left 3, then add",sh3add_uw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZBA,"B,Zba",slli.uw,Shift with prefix zero-extended,slli_uw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

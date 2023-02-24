@@ -1,5 +1,7 @@
 //
-// Copyright (c) 2022 Imperas Software Ltd., www.imperas.com
+// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com
+// 
+// SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -19,6 +21,16 @@
  
 // SystemVerilog Functional Coverage Available for extensions: 
 //   RV32I
+
+///////////////////////
+// Platform Options  // 
+///////////////////////
+
+// Base ISA.  Uncomment one of these:
+`define COVER_BASE_RV32I
+//`define COVER_BASE_RV32E
+
+
 
 //////////////////////////
 // Select Coverage Level// 
@@ -47,7 +59,7 @@
 //////////////////////
 // Select Extensions//
 //////////////////////
-// Comment out to disable
+// Comment out to disable coverage
 `define COVER_RV32I
 //`define COVER_RV32I_ILLEGAL
  

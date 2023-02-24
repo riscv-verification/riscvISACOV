@@ -1,0 +1,4 @@
+RV64ZCD,Zcd Code Size Reduction extension for previous double precision FP loads/stores,1.0.0
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
