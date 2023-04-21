@@ -32,12 +32,11 @@ typedef enum {
     mepc
 } csr_name_t;
 
-function int get_csr_val(int hart, int issue, int after, string name, string field);
+function int get_csr_val(int hart, int issue, int prev, string name, string field);
     int addr = get_csr_addr(hart, name);
 
     int val;
-    if (after == 1) val = this.rvvi.csr[hart][issue][addr];
-    else val = this.csr_prev[hart][issue][addr];
+    val = rvviDataQ[hart][issue][prev].csr[addr];
 
     // If the field is defined/found, shift and mask the value to be returned
     if (name == "fflags") begin

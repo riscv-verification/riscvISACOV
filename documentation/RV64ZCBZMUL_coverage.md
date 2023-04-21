@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZCBZMUL  
 Specification: Zcb Code Size Reduction extension and M or Zmmul  
-Version:       1.0.0  
-XLEN:          64  
+Version:       1.0.0
+XLEN:          64 
 
 Instructions:  1  
 Covergroups:   1  

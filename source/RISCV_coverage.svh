@@ -42,12 +42,14 @@ class coverage #(
     endfunction
  
     function void sample(bit trap, int hart, int issue, string disass); 
+        save_rvvi_data(trap, hart, issue, disass);
         
         sample_extensions(trap, hart, issue, disass);
+        super.sample_idv_metrics();
 
         // Sample custom covergroups here
         
     endfunction
- 
+
 endclass
 

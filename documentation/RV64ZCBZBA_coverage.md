@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZCBZBA  
 Specification: Zcb Code Size Reduction extension and Zba Bitmanip  
-Version:       1.0.0  
-XLEN:          64  
+Version:       1.0.0
+XLEN:          64 
 
 Instructions:  1  
 Covergroups:   1  

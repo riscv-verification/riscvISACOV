@@ -6,34 +6,34 @@ RV64ZKNE,"Zk,Zkn,Zkne",aes64es,AES SubBytes and ShiftRows transformation,aes64es
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,RD and RS2 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eq,Compare RS1 and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eqval,Compare RS1 and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64ZKNE,"Zk,Zkn,Zkne",aes64esm,"AES SubBytes, ShiftRows, MixColumns transformation",aes64esm_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,RD and RS2 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eq,Compare RS1 and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eqval,Compare RS1 and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64ZKNE,"Zk,Zkn,Zknd,Zkne",aes64ks1i,"AES Encrypt KeySchedule - rotate, SubBytes and Tound Constant",aes64ks1i_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64ZKNE,"Zk,Zkn,Zknd,Zkne",aes64ks2,AES Encrypt KeySchedule: - XOR summation,aes64ks2_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,RD and RS2 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eq,Compare RS1 and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cmp_rs1_rs2_eqval,Compare RS1 and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage

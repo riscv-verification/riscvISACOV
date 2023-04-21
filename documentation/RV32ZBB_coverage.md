@@ -2,8 +2,8 @@
 
 ISA Extension: RV32ZBB  
 Specification: B Standard Extension for Bit-Manipulation, basic bit-manipulation  
-Version:       1.0  
-XLEN:          32  
+Version:       1.0
+XLEN:          32 
 
 Instructions:  18  
 Covergroups:   18  

@@ -2,8 +2,8 @@
 
 ISA Extension: RV32ZBA  
 Specification: B Standard Extension for Bit-Manipulation, accelerate the generation of addresses  
-Version:       1.0  
-XLEN:          32  
+Version:       1.0
+XLEN:          32 
 
 Instructions:  3  
 Covergroups:   3  

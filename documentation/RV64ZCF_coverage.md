@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZCF  
 Specification: Zcf Code Size Reduction extension for previous single precision FP loads/stores  
-Version:       0.70.4  
-XLEN:          64  
+Version:       0.70.4
+XLEN:          64 
 
 Instructions:  0  
 Covergroups:   0  

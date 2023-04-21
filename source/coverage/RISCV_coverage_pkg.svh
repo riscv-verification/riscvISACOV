@@ -25,6 +25,8 @@ import rvviPkg::*;
 import rvviApiPkg::*;
 
 `include "coverage/RISCV_coverage_common.svh"
+`include "coverage/RISCV_trace_data.svh"
+
 
 class RISCV_coverage
 #(
@@ -36,8 +38,14 @@ class RISCV_coverage
     parameter int RETIRE = 1    // Number of instructions that can retire during valid event
 );
 
+    `include "coverage/RISCV_coverage_rvvi.svh"
     `include "coverage/RISCV_coverage_csr.svh"
     `include "coverage/RISCV_coverage_exceptions.svh"
+    `include "coverage/RISCV_coverage_hazards.svh"
+
+    `ifdef COVER_RV32I_IMPTEST
+        `include "coverage/RV32I_IMPTEST_coverage.svh"
+    `endif
 
     `ifdef COVER_RV32I
         `ifdef COVER_RV32I_ILLEGAL
@@ -55,29 +63,18 @@ class RISCV_coverage
 
     virtual rvviTrace #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvvi;
 
-    // Todo: Look into moving these delayed/pipelined values up to rvvi or trace2cov level instead.
-    reg [4095:0][(XLEN-1):0] csr_prev        [(NHART-1):0][(RETIRE-1):0];
-
-    
 
     function new(virtual rvviTrace #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvvi);
    
         this.rvvi = rvvi;
 
-    `ifdef COVER_RV32I
-    `include "coverage/RV32I_coverage_init.svh"
+    `ifdef COVER_RV32I_IMPTEST
+        `include "coverage/RV32I_IMPTEST_coverage_init.svh"
     `endif
-    `ifdef COVER_RV32I_ILLEGAL
+
+    `ifdef COVER_RV32I
         `include "coverage/RV32I_coverage_init.svh"
     `endif
-
-
-    fork
-        forever @(posedge this.rvvi.clk) 
-            begin
-                this.csr_prev <= this.rvvi.csr;
-            end
-    join_none
 
     endfunction
 
@@ -91,12 +88,19 @@ class RISCV_coverage
 
         string inst_name = get_inst_name(trap, hart, issue, disass);
         
+    `ifdef COVER_RV32I_IMPTEST
+        rv32i_sample(inst_name, trap, hart, issue, disass);
+    `endif
+
     `ifdef COVER_RV32I
         rv32i_sample(inst_name, trap, hart, issue, disass);
     `endif
     `ifdef COVER_RV32I_ILLEGAL
         rv32i_sample(inst_name, trap, hart, issue, disass);
     `endif
+    endfunction
+
+    function void sample_idv_metrics();
     endfunction
 
 endclass

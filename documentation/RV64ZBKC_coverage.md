@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZBKC  
 Specification: K Cryptography Extensions, Carry-less multiply instructions  
-Version:       1.0  
-XLEN:          64  
+Version:       1.0
+XLEN:          64 
 
 Instructions:  2  
 Covergroups:   2  

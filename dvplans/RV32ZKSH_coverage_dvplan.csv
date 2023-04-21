@@ -5,10 +5,10 @@ Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Descri
 RV32ZKSH,"Zks,Zksh",sm3p0,SM3 Secure Hash function,sm3p0_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZKSH,"Zks,Zksh",sm3p1,SM3 Secure Hash function,sm3p1_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eq,Compare RD and RS1 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eq,RD and RS1 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs1_eqval,Compare RD and RS1 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

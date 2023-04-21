@@ -44,10 +44,16 @@ Compliance Basic,
 ,Stack adjust value (popd)
 ,Sreg register assignment
 ,JVT index
+,Simulator RVVI metric retires
+,Simulator RVVI metric cycles
+,Simulator RVVI metric PC compares
+,Simulator RVVI metric GPR compares
+,Simulator RVVI metric CSR compares
+,Simulator RVVI metric insbin compares
+,Simulator RVVI metric traps
+,Simulator RVVI metric mismatches
 ,
 Compliance Extended,
-,Compare RD and RS1 register assignment
-,Compare RD and RS2 register assignment
 ,Compare RS1 and RS2 register assignment
 ,RD Toggle bits
 ,RDP Toggle bits
@@ -88,6 +94,11 @@ Compliance Extended,
 ,Type of Fault that occurred during store
 ,
 DV Un-privileged Basic,
+,RD and RS1 register (assignment) WAR Hazard
+,RD and RS2 register (assignment) WAR Hazard
+,Cross coverage of RD and RS1 register assignment
+,Cross coverage of RD and RS2 register assignment
+,"Cross coverage of RD, RS1, and RS2 register assignment"
 ,FD FPU Special values
 ,FS1 FPU Special values
 ,FS2 FPU Special values
@@ -175,6 +186,7 @@ DV Privileged Basic,
 ,pmpcfg2 (CSR) field pmp15 xwr
 ,pmpcfg2 (CSR) field pmp15 a
 ,pmpcfg2 (CSR) field pmp15 l
+,MMU successful Page Table walk
 ,
 DV Privileged Extended,
 ,

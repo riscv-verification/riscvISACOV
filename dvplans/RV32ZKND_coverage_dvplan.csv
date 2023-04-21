@@ -5,10 +5,10 @@ Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Descri
 RV32ZKND,"Zk,Zkn,Zknd",aes32dsi,AES Decrypt SubBytes,aes32dsi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,RD and RS2 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZKND,"Zk,Zkn,Zknd",aes32dsmi,AES Decrypt SubBytes and MixColumns,aes32dsmi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eq,Compare RD and RS2 register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eq,RD and RS2 register (assignment) WAR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_rd_rs2_eqval,Compare RD and RS2 register values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

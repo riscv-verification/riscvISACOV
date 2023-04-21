@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZBS  
 Specification: B Standard Extension for Bit-Manipulation, single-bit instructions  
-Version:       1.0  
-XLEN:          64  
+Version:       1.0
+XLEN:          64 
 
 Instructions:  8  
 Covergroups:   8  

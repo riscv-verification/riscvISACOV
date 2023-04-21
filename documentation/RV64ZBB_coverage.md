@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZBB  
 Specification: B Standard Extension for Bit-Manipulation, basic bit-manipulation  
-Version:       1.0  
-XLEN:          64  
+Version:       1.0
+XLEN:          64 
 
 Instructions:  24  
 Covergroups:   24  
@@ -19,10 +19,19 @@ Coverpoints Compliance Basic:  85
 | RV64ZBB               |          B,Zbb |        clz |      clz_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+| RV64ZBB               |          B,Zbb |       clzw |     clzw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 | RV64ZBB               |          B,Zbb |       cpop |     cpop_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+| RV64ZBB               |          B,Zbb |      cpopw |    cpopw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 | RV64ZBB               |          B,Zbb |        ctz |      ctz_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+| RV64ZBB               |          B,Zbb |       ctzw |     ctzw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 | RV64ZBB               |          B,Zbb |        max |      max_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
@@ -55,6 +64,10 @@ Coverpoints Compliance Basic:  85
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
+| RV64ZBB               |     B,Zbb,Zbkb |       rolw |     rolw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
 | RV64ZBB               | B,Zbb,Zbp,Zbkb |        ror |      ror_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
@@ -63,6 +76,14 @@ Coverpoints Compliance Basic:  85
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
+| RV64ZBB               |     B,Zbb,Zbkb |      roriw |    roriw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
+| RV64ZBB               |     B,Zbb,Zbkb |       rorw |     rorw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
 | RV64ZBB               |          B,Zbb |     sext-b |   sext_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
@@ -76,26 +97,5 @@ Coverpoints Compliance Basic:  85
 | RV64ZBB               |          B,Zbb |     zext-h |   zext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-| RV64ZBB               |          B,Zbb |       clzw |     clzw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-| RV64ZBB               |          B,Zbb |      cpopw |    cpopw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-| RV64ZBB               |          B,Zbb |       ctzw |     ctzw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-| RV64ZBB               |     B,Zbb,Zbkb |       rolw |     rolw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
-| RV64ZBB               |     B,Zbb,Zbkb |      roriw |    roriw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-|                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
-| RV64ZBB               |     B,Zbb,Zbkb |       rorw |     rorw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
-|                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-|                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
 
 

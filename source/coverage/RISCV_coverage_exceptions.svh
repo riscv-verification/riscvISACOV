@@ -21,18 +21,9 @@
  
 
 function int get_stack_fault_offset(int hart, int issue, int offset);
-    int sp = get_gpr_val(hart, issue, `SAMPLE_AFTER, "x2");
+    int sp = get_gpr_val(hart, issue, "x2", `SAMPLE_AFTER);
     int addr = get_csr_val(hart, issue, `SAMPLE_AFTER, "mtval", "");
     return (sp + offset - addr) / (XLEN/8);
-endfunction
-
-function int get_gpr_val(int hart, int issue, int after, string name);
-    int idx = get_gpr_num(name);
-
-    if (idx >= 0) begin
-        return this.rvvi.x_wdata[hart][issue][idx];
-    end
-    return 0;
 endfunction
 
 
@@ -63,3 +54,5 @@ function int get_fault(int hart, int issue);
     return cause;
 
 endfunction
+
+

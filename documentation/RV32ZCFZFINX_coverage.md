@@ -2,8 +2,8 @@
 
 ISA Extension: RV32ZCFZFINX  
 Specification: Zcf Code Size Reduction extension for previous single precision FP loads/stores using integer registers  
-Version:       0.70.4  
-XLEN:          32  
+Version:       0.70.4
+XLEN:          32 
 
 Instructions:  4  
 Covergroups:   4  

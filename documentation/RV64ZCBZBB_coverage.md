@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZCBZBB  
 Specification: Zcb Code Size Reduction extension and Zbb Bitmanip  
-Version:       1.0.0  
-XLEN:          64  
+Version:       1.0.0
+XLEN:          64 
 
 Instructions:  3  
 Covergroups:   3  
@@ -17,11 +17,11 @@ Coverpoints Compliance Extended:  6
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
-| RV64ZCBZBB            |         ZcbZbb |   c-zext-h | c_zext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV64ZCBZBB            |         ZcbZbb |   c-sext-h | c_sext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
-| RV64ZCBZBB            |         ZcbZbb |   c-sext-h | c_sext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV64ZCBZBB            |         ZcbZbb |   c-zext-h | c_zext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended

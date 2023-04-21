@@ -26,7 +26,7 @@
 // Platform Options  // 
 ///////////////////////
 
-// Base ISA.  Uncomment one of these:
+// Base ISA.  Uncomment (or use a +define) one of these:
 `define COVER_BASE_RV32I
 //`define COVER_BASE_RV32E
 
@@ -35,7 +35,7 @@
 //////////////////////////
 // Select Coverage Level// 
 //////////////////////////
-// Uncomment one of these (higher cover levels enable lower levels):
+// Uncomment (or use a +define) one of these (higher cover levels enable lower levels):
 
 // Compliance Basic
 //`define COVER_LEVEL_COMPL_BAS

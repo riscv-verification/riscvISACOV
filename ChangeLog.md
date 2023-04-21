@@ -23,6 +23,14 @@
 
 This CHANGELOG contains information for the riscvISACOV functional coverage files.
 
+RISC-V MMU coverage is currently a work in progress (and is disabled)
+Added RVVI Metrics for end of simulation reporting and collating
+Added RD,RS1 and RD,RS2 single instruction WAR hazards
+Added crosses for register assignments for RD,RS1, and RD,RS2, and RD,RS1,RS2
+
+---
+Date 2023-March-03
+Release 20230323.0
 
 Updated to correctly pass parameters setting XLEN, FLEN etc.
 

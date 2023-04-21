@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZBC  
 Specification: B Standard Extension for Bit-Manipulation, carry-less multiplication  
-Version:       1.0  
-XLEN:          64  
+Version:       1.0
+XLEN:          64 
 
 Instructions:  3  
 Covergroups:   3  

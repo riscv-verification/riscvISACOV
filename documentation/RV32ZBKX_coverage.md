@@ -2,8 +2,8 @@
 
 ISA Extension: RV32ZBKX  
 Specification: K Cryptography Extensions, Crossbar permutation instructions  
-Version:       1.0  
-XLEN:          32  
+Version:       1.0
+XLEN:          32 
 
 Instructions:  0  
 Covergroups:   0  

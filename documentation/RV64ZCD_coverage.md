@@ -2,8 +2,8 @@
 
 ISA Extension: RV64ZCD  
 Specification: Zcd Code Size Reduction extension for previous double precision FP loads/stores  
-Version:       1.0.0  
-XLEN:          64  
+Version:       1.0.0
+XLEN:          64 
 
 Instructions:  0  
 Covergroups:   0  

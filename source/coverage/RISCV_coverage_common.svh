@@ -113,8 +113,12 @@
   `endif
 `endif
 
-`define SAMPLE_BEFORE 0
-`define SAMPLE_AFTER 1
+`define SAMPLE_AFTER 0
+`define SAMPLE_BEFORE 1
+
+`define SAMPLE_CURRENT 0
+`define SAMPLE_PREV 1
+
 `define MCAUSE_ILLEGAL_INST 2
 
 typedef struct { 
