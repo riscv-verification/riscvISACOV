@@ -45,7 +45,7 @@ Release 20221122.0
 Added RV32E and RV64 extensions: I,M,C,D,B,K-scalar,Zc
 
 ---
-Date 2022-November-17 
+Date 2022-November-17  
 Release 20221117.0
 
 Added RV32 B and K-scalar extensions
