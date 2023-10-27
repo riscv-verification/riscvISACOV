@@ -26,7 +26,7 @@ RV32E,,add,Add,add_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,addi,Add signed immediate,addi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -66,7 +66,7 @@ RV32E,,and,AND,and_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,andi,And signed immediate,andi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -189,7 +189,7 @@ RV32E,,lb,Load Byte (8-bit),lb_cg,,,,,,
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mem_hazard,Memory hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mem_hazard,Memory Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mem_unaligned,Memory unaligned access,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,lbu,Load Unsigned Byte (8-bit),lbu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -197,7 +197,7 @@ RV32E,,lbu,Load Unsigned Byte (8-bit),lbu_cg,,,,,,
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mem_hazard,Memory hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mem_hazard,Memory Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mem_unaligned,Memory unaligned access,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,lh,Load Half word (16-bit),lh_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -205,7 +205,7 @@ RV32E,,lh,Load Half word (16-bit),lh_cg,,,,,,
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mem_hazard,Memory hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mem_hazard,Memory Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mem_unaligned,Memory unaligned access,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,lhu,Load Unsigned Half word (16-bit),lhu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -213,7 +213,7 @@ RV32E,,lhu,Load Unsigned Half word (16-bit),lhu_cg,,,,,,
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mem_hazard,Memory hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mem_hazard,Memory Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mem_unaligned,Memory unaligned access,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,lui,Load Upper Immediate,lui_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -227,7 +227,7 @@ RV32E,,lw,Load Word (32-bit),lw_cg,,,,,,
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mem_hazard,Memory hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mem_hazard,Memory Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mem_unaligned,Memory unaligned access,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,or,OR,or_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -253,7 +253,7 @@ RV32E,,or,OR,or_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,ori,Or signed immediate,ori_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -484,7 +484,7 @@ RV32E,,sub,Subtract,sub_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,sw,Store Word (32-bit),sw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -515,7 +515,7 @@ RV32E,,xor,Exlusive OR,xor_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32E,,xori,Exlusive-OR Immediate,xori_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

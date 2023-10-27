@@ -13,7 +13,7 @@ Coverpoints Compliance Extended:  4
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
 | ----------| ------ | ---------- | ---------- | -------------- | ---------------------- | ----------------- |
-| RV32ZCBZMUL           |        ZcbZmul |      c-mul |    c_mul_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV32ZCBZMUL           |        ZcbZmul |      c.mul |    c_mul_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |     cp_rs2p | RS2 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended

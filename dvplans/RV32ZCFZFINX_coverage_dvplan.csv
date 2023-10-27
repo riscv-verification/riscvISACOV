@@ -1,4 +1,4 @@
-RV32ZCFZFINX,Zcf Code Size Reduction extension for previous single precision FP loads/stores using integer registers,0.70.4
+RV32ZCFZFINX,Zcf Code Size Reduction extension for previous single precision FP loads/stores using integer registers,1.0
 xlen,32
 ""
 Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method

@@ -18,16 +18,49 @@
 // limitations under the License.  
 //  
 //  
-   `define NUM_RVVI_DATA 5
+ 
+`define NUM_REGS 32
 
-  riscvTraceData #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvviDataQ [(NHART-1):0][(RETIRE-1):0] [$:`NUM_RVVI_DATA]; 
+  riscvTraceData #(ILEN, XLEN, FLEN, VLEN) traceDataQ [(NHART-1):0][(RETIRE-1):0] [$:`NUM_RVVI_DATA]; 
   
   
   function void save_rvvi_data(bit trap, int hart, int issue, string disass);
       
       string inst_name = get_inst_name(trap, hart, issue, disass);
-  
-      riscvTraceData #(ILEN, XLEN, FLEN, VLEN, NHART, RETIRE) rvviData;
+      riscvTraceData #(ILEN, XLEN, FLEN, VLEN) rvviData;
+      bit [(`NUM_REGS-1):0] mask, wb;
+      int idx;
+
+      // Load initial prev values to use for checking register values during first (sampled) instruction
+      // Todo: initial CSR values would be incorrect
+      while (traceDataQ[hart][issue].size() < `NUM_RVVI_DATA) begin  
+        rvviData = new();
+        rvviData.valid = 0;
+        rvviData.order = 0;
+        rvviData.insn = 0;
+        rvviData.trap = 0;
+        rvviData.halt = 0;
+        rvviData.intr = 0;
+        rvviData.mode = 0;
+        rvviData.ixl = 0;
+        rvviData.pc_rdata = 0;
+        rvviData.pc_wdata = 0;
+        rvviData.x_wdata = 0;
+        rvviData.x_wb = 0;
+        rvviData.f_wdata = 0;
+        rvviData.f_wb = 0;
+        rvviData.v_wdata = 0;
+        rvviData.v_wb = 0;
+        rvviData.csr = 0;
+        rvviData.csr_wb = 0;
+        rvviData.lrsc_cancel = 0;
+        rvviData.hart = hart;
+        rvviData.issue = issue;
+        rvviData.disass = "";
+        rvviData.inst_name = "";
+        traceDataQ[hart][issue].push_front(rvviData);
+      end
+
       rvviData = new();
       rvviData.valid = this.rvvi.valid[hart][issue];
       rvviData.order = this.rvvi.order[hart][issue];
@@ -39,74 +72,70 @@
       rvviData.ixl = this.rvvi.ixl[hart][issue];
       rvviData.pc_rdata = this.rvvi.pc_rdata[hart][issue];
       rvviData.pc_wdata = this.rvvi.pc_wdata[hart][issue];
-      rvviData.x_wdata = this.rvvi.x_wdata[hart][issue];
+
+      // Assign current values
+//      rvviData.x_wdata = this.rvvi.x_wdata[hart][issue];
       rvviData.x_wb = this.rvvi.x_wb[hart][issue];
-      rvviData.f_wdata = this.rvvi.f_wdata[hart][issue];
+      rvviData.x_wdata = traceDataQ[hart][issue][0].x_wdata;
+      // Update changed values
+      if (rvviData.x_wb != 'b0) begin
+          for (idx=0; idx<`NUM_REGS; idx++) begin
+              mask = 1<<idx;
+              if ((mask & rvviData.x_wb) != 'b0) begin
+                      rvviData.x_wdata[idx] = this.rvvi.x_wdata[hart][issue][idx];
+              end
+          end
+      end
+
+      // Assign current values
+//      rvviData.f_wdata = this.rvvi.f_wdata[hart][issue];
       rvviData.f_wb = this.rvvi.f_wb[hart][issue];
-      rvviData.v_wdata = this.rvvi.v_wdata[hart][issue];
+
+      // Assign previous register values
+      rvviData.f_wb = this.rvvi.f_wb[hart][issue];
+      rvviData.f_wdata = traceDataQ[hart][issue][0].f_wdata;
+      // Update changed values
+      if (rvviData.f_wb != 'b0) begin
+          for (idx=0; idx<`NUM_REGS; idx++) begin
+              mask = 1<<idx;
+              if ((mask & rvviData.f_wb) != 'b0) begin
+                      rvviData.f_wdata[idx] = this.rvvi.f_wdata[hart][issue][idx];
+              end
+          end
+      end
+
+      // Assign current values
+//      rvviData.v_wdata = this.rvvi.v_wdata[hart][issue];
       rvviData.v_wb = this.rvvi.v_wb[hart][issue];
+      rvviData.v_wb = this.rvvi.v_wb[hart][issue];
+      rvviData.v_wdata = traceDataQ[hart][issue][0].v_wdata;
+      // Update changed values
+      if (rvviData.v_wb != 'b0) begin
+          for (idx=0; idx<`NUM_REGS; idx++) begin
+              mask = 1<<idx;
+              if ((mask & rvviData.v_wb) != 'b0) begin
+                      rvviData.v_wdata[idx] = this.rvvi.v_wdata[hart][issue][idx];
+              end
+          end
+      end
+
       rvviData.csr = this.rvvi.csr[hart][issue];
       rvviData.csr_wb = this.rvvi.csr_wb[hart][issue];
       rvviData.lrsc_cancel = this.rvvi.lrsc_cancel[hart][issue];
       rvviData.disass = disass;
       rvviData.inst_name = inst_name;
-      if (rvviDataQ[hart][issue].size() >= `NUM_RVVI_DATA) begin
-          rvviDataQ[hart][issue].pop_back();
+      rvviData.hart = hart;
+      rvviData.issue = issue;
+      if (traceDataQ[hart][issue].size() >= `NUM_RVVI_DATA) begin
+          traceDataQ[hart][issue].delete(`NUM_RVVI_DATA-1);
       end
-      rvviDataQ[hart][issue].push_front(rvviData);
+      traceDataQ[hart][issue].push_front(rvviData);
+
   
   endfunction
 
-
-`ifdef COVER_XLEN_32
-    function int get_gpr_val(int hart, int issue, string key, int prev);
-`else
-    function longint get_gpr_val(int hart, int issue, string key, int prev);
-`endif
-        int idx = get_gpr_num(key);
-
-        if ((rvviDataQ[hart][issue].size() - 1) < prev) begin
-            $display("get_gpr_val() - prev (%d) out of range (%d)", prev, rvviDataQ[hart][issue].size());
-            return 0;
-        end
-
-        if (idx >= 0) begin
-            return rvviDataQ[hart][issue][prev].x_wdata[idx];
-        end
-        return 0;
-endfunction
-
-`ifdef COVER_XLEN_32
-    function int get_fpr_val(int hart, int issue, string key, int prev);
-`else
-    function longint get_fpr_val(int hart, int issue, string key, int prev);
-`endif
-        int idx = get_fpr_num(key);
-
-        if ((rvviDataQ[hart][issue].size() - 1) < prev) begin
-            $display("get_fpr_val() - prev (%d) out of range (%d)", prev, rvviDataQ[hart][issue].size());
-            return 0;
-        end
-
-        if (idx >= 0) begin
-            return rvviDataQ[hart][issue][prev].f_wdata[idx];
-        end
-        return 0;
-    endfunction
-
-
-`ifdef COVER_XLEN_32
-function int get_pc(int hart, int issue, int prev);
-`else
-function longint get_pc(int hart, int issue, int prev);
-`endif
-        
-    if ((rvviDataQ[hart][issue].size() - 1) < prev) begin
-        $display("get_pc() - prev (%d) out of range (%d)", prev, rvviDataQ[hart][issue].size());
-        return 0;
-    end
-
-    return rvviDataQ[hart][issue][prev].pc_rdata;
+function int csrs_changed(int hart, int issue);
+    return traceDataQ[hart][issue][0].csr_wb != 0;
 endfunction
 
 function longint get_metric(longint index);

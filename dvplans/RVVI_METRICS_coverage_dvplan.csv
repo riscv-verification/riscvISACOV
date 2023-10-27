@@ -1,7 +1,7 @@
 RVVI_METRICS,RVVI Simulation Metrics,1.0
 xlen,
 ""
-Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+Extension,Subset,Scenario,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
 RVVI_METRICS,,rvvi_metrics,RVVI Simulation Metrics,rvvi_metrics_cg,,,,,,
 ,,,,,cp_retires,Simulator RVVI metric retires,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_traps,Simulator RVVI metric traps,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

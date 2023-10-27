@@ -1,0 +1,10 @@
+RSC_MMU_SV57,Imperas Trained Scenario Functional Coverage for MMU Sv57,0.2
+xlen,64
+""
+Extension,Subset,Scenario,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RSC_MMU_SV57,,rsc_mmu_sv57,Imperas Trained Scenario Functional Coverage for MMU Sv57,rsc_mmu_sv57_cg,,,,,,
+,,,,,cp_stage,MMU stage,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_mode,MMU mode,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_level,MMU level,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_result,MMU result,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_stage_mode_level_result,MMU cross,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

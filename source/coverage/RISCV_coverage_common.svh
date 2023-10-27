@@ -19,37 +19,44 @@
 //  
 //  
  
+`ifndef COVER_QUIET 
+    `define cover_info(s)     $display(s);
+`else
+    `define cover_info(s) 
+    
+`endif
+
 // Check that only one COVER_BASE_* is set
 `ifdef COVER_BASE_RV32I
     `define COVER_XLEN_32
     `ifdef COVER_BASE_RV32E
-        $fatal("Cannot select both COVER_BASE_RV32I and COVER_BASE_RV32E!");
+        msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV32E!"));
     `else 
        `ifdef COVER_BASE_RV64I
-          $fatal("Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64I!");
+          msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64I!"));
         `endif
         `ifdef COVER_BASE_RV64E
-          $fatal("Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64E!");
+          msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64E!"));
         `endif
     `endif
 `else 
     `ifdef COVER_BASE_RV32E
         `define COVER_XLEN_32
         `ifdef COVER_BASE_RV64I
-            $fatal("Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64I!");
+            msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64I!"));
         `endif
         `ifdef COVER_BASE_RV64E
-            $fatal("Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64E!");
+            msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64E!"));
         `endif
     `else 
         `define COVER_XLEN_64
         `ifdef COVER_BASE_RV64I
             `ifdef COVER_BASE_RV64E
-                $fatal("Cannot select both COVER_BASE_RV64I and COVER_BASE_RV64E!");
+                msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV64I and COVER_BASE_RV64E!"));
             `endif
         `else
             `ifndef COVER_BASE_RV64E
-                $fatal("No Base ISA (COVER_BASE_*) selected!");
+                msgfatal($sformatf("Fatal error: No Base ISA (COVER_BASE_*) selected!"));
             `endif
         `endif
     `endif
@@ -120,6 +127,14 @@
 `define SAMPLE_PREV 1
 
 `define MCAUSE_ILLEGAL_INST 2
+
+`define NUM_RVVI_DATA 5
+
+`ifdef COVER_XLEN_32
+    `define XLEN_INT int
+`else
+    `define XLEN_INT longint
+`endif
 
 typedef struct { 
     string key;
@@ -221,222 +236,7 @@ typedef enum {
     c_f15
 } fpr_reduced_name_t;
 
-typedef enum {
-        s0,
-        s1,
-        s2,
-        s3,
-        s4,
-        s5,
-        s6,
-        s7
-    } sreg_name_t;
 
-typedef enum {
-    c_ra = 4,
-    c_ra_s0,
-    c_ra_s0_s1,
-    c_ra_s0_s2,
-    c_ra_s0_s3,
-    c_ra_s0_s4,
-    c_ra_s0_s5,
-    c_ra_s0_s6,
-    c_ra_s0_s7,
-    c_ra_s0_s8,
-    c_ra_s0_s9,
-    c_ra_s0_s11
-} stack_reg_list_t;
-
-function stack_reg_list_t get_sreg_list (string key); 
-    case (key)
-        "{ra}":    return c_ra;
-        "{x1}":    return c_ra;
-        "{ra,s0}": return c_ra_s0;
-        "{x1,x8}": return c_ra_s0;
-        "{ra,s0-s1}": return c_ra_s0_s1;
-        "{x1,x8-x9}": return c_ra_s0_s1;
-        "{ra,s0-s2}": return c_ra_s0_s2;
-        "{x1,x8-x9,x18}": return c_ra_s0_s2;
-        "{ra,s0-s3}": return c_ra_s0_s3;
-        "{x1,x8-x9,x18-x19}": return c_ra_s0_s3;
-        "{ra,s0-s4}": return c_ra_s0_s4;
-        "{x1,x8-x9,x18-x20}": return c_ra_s0_s4;
-        "{ra,s0-s5}": return c_ra_s0_s5;
-        "{x1,x8-x9,x18-x21}": return c_ra_s0_s5;
-        "{ra,s0-s6}": return c_ra_s0_s6;
-        "{x1,x8-x9,x18-x22}": return c_ra_s0_s6;
-        "{ra,s0-s7}": return c_ra_s0_s7;
-        "{x1,x8-x9,x18-x23}": return c_ra_s0_s7;
-        "{ra,s0-s8}": return c_ra_s0_s8;
-        "{x1,x8-x9,x18-x24}": return c_ra_s0_s8;
-        "{ra,s0-s9}": return c_ra_s0_s9;
-        "{x1,x8-x9,x18-x25}": return c_ra_s0_s9;
-        "{ra,s0-s11}": return c_ra_s0_s11;
-        "{x1,x8-x9,x18-x27}": return c_ra_s0_s11;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_sreg_list(%0s) not found sreg list", key);
-            $finish(-1);
-        end
-    endcase
-endfunction
-
-function int get_sreg_num_regs (string key); 
-    case (key)
-        "{ra}":    return 1;
-        "{x1}":    return 1;
-        "{ra,s0}": return 2;
-        "{x1,x8}": return 2;
-        "{ra,s0-s1}": return 3;
-        "{x1,x8-x9}": return 3;
-        "{ra,s0-s2}": return 4;
-        "{x1,x8-x9,x18}": return 4;
-        "{ra,s0-s3}": return 5;
-        "{x1,x8-x9,x18-x19}": return 5;
-        "{ra,s0-s4}": return 6;
-        "{x1,x8-x9,x18-x20}": return 6;
-        "{ra,s0-s5}": return 7;
-        "{x1,x8-x9,x18-x21}": return 7;
-        "{ra,s0-s6}": return 8;
-        "{x1,x8-x9,x18-x22}": return 8;
-        "{ra,s0-s7}": return 9;
-        "{x1,x8-x9,x18-x23}": return 9;
-        "{ra,s0-s8}": return 10;
-        "{x1,x8-x9,x18-x24}": return 10;
-        "{ra,s0-s9}": return 11;
-        "{x1,x8-x9,x18-x25}": return 11;
-        "{ra,s0-s11}": return 13;
-        "{x1,x8-x9,x18-x27}": return 13;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_sreg_num_regs(%0s) not found sreg list", key);
-            $finish(-1);
-        end
-    endcase
-endfunction
-
-function gpr_name_t get_gpr_reg (string key); 
-    case (key)
-        "x0": return x0;
-        "zero": return x0;
-        "x1": return x1;
-        "ra": return x1;
-        "x2": return x2;
-        "sp": return x2;
-        "x3": return x3;
-        "gp": return x3;
-        "x4": return x4;
-        "tp": return x4;
-        "x5": return x5;
-        "t0": return x5;
-        "x6": return x6;
-        "t1": return x6;
-        "x7": return x7;
-        "t2": return x7;
-        "x8": return x8;
-        "s0": return x8;
-        "x9": return x9;
-        "s1": return x9;
-        "x10": return x10;
-        "a0": return x10;
-        "x11": return x11;
-        "a1": return x11;
-        "x12": return x12;
-        "a2": return x12;
-        "x13": return x13;
-        "a3": return x13;
-        "x14": return x14;
-        "a4": return x14;
-        "x15": return x15;
-        "a5": return x15;
-`ifndef COVER_BASE_RV32E
-        "x16": return x16;
-        "a6": return x16;
-        "x17": return x17;
-        "a7": return x17;
-        "x18": return x18;
-        "s2": return x18;
-        "x19": return x19;
-        "s3": return x19;
-        "x20": return x20;
-        "s4": return x20;
-        "x21": return x21;
-        "s5": return x21;
-        "x22": return x22;
-        "s6": return x22;
-        "x23": return x23;
-        "s7": return x23;
-        "x24": return x24;
-        "s8": return x24;
-        "x25": return x25;
-        "s9": return x25;
-        "x26": return x26;
-        "s10": return x26;
-        "x27": return x27;
-        "s11": return x27;
-        "x28": return x28;
-        "t3": return x28;
-        "x29": return x29;
-        "t4": return x29;
-        "x30": return x30;
-        "t5": return x30;
-        "x31": return x31;
-        "t6": return x31;
-`endif
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_reg(%0s) not found gpr", key);
-            $finish(-1);
-        end
-        endcase
-endfunction
-
-function sreg_name_t get_stack_reg (string key); 
-    case (key)
-        "x8": return s0;
-        "s0": return s0;
-        "x9": return s1;
-        "s1": return s1;
-        "x18": return s2;
-        "s2": return s2;
-        "x19": return s3;
-        "s3": return s3;
-        "x20": return s4;
-        "s4": return s4;
-        "x21": return s5;
-        "s5": return s5;
-        "x22": return s6;
-        "s6": return s6;
-        "x23": return s7;
-        "s7": return s7;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_stack_reg(%0s) not found sreg for", key);
-            $finish(-1);
-        end
-        endcase
-endfunction
-
-function gpr_reduced_name_t get_gpr_c_reg (string key); 
-    case (key)
-        "x8": return c_x8;
-        "s0": return c_x8;
-        "x9": return c_x9;
-        "s1": return c_x9;
-        "x10": return c_x10;
-        "a0": return c_x10;
-        "x11": return c_x11;
-        "a1": return c_x11;
-        "x12": return c_x12;
-        "a2": return c_x12;
-        "x13": return c_x13;
-        "a3": return c_x13;
-        "x14": return c_x14;
-        "a4": return c_x14;
-        "x15": return c_x15;
-        "a5": return c_x15;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_gpr_c_reg(%0s) not found gpr", key);
-            $finish(-1);
-        end
-        endcase
-endfunction
 
 function int get_gpr_num(string key);
     case(key)
@@ -508,63 +308,7 @@ function int get_gpr_num(string key);
     return -1;
 endfunction
 
-function fpr_name_t get_fpr_reg (string key);
-    case (key)
-        "f0": return f0;
-        "f1": return f1;
-        "f2": return f2;
-        "f3": return f3;
-        "f4": return f4;
-        "f5": return f5;
-        "f6": return f6;
-        "f7": return f7;
-        "f8": return f8;
-        "f9": return f9;
-        "f10": return f10;
-        "f11": return f11;
-        "f12": return f12;
-        "f13": return f13;
-        "f14": return f14;
-        "f15": return f15;
-        "f16": return f16;
-        "f17": return f17;
-        "f18": return f18;
-        "f19": return f19;
-        "f20": return f20;
-        "f21": return f21;
-        "f22": return f22;
-        "f23": return f23;
-        "f24": return f24;
-        "f25": return f25;
-        "f26": return f26;
-        "f27": return f27;
-        "f28": return f28;
-        "f29": return f29;
-        "f30": return f30;
-        "f31": return f31;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_reg(%0s) not found fpr", key);
-            $finish(-1);
-        end
-    endcase
-endfunction
 
-function fpr_reduced_name_t get_fpr_c_reg (string key);
-    case (key)
-        "f8": return c_f8;
-        "f9": return c_f9;
-        "f10": return c_f10;
-        "f11": return c_f11;
-        "f12": return c_f12;
-        "f13": return c_f13;
-        "f14": return c_f14;
-        "f15": return c_f15;
-        default: begin
-            $display("ERROR: SystemVerilog Functional Coverage: get_fpr_c_reg(%0s) not found fpr", key);
-            $finish(-1);
-        end
-    endcase
-endfunction
 
 function int get_fpr_num(string key);
     case(key)
@@ -604,32 +348,24 @@ function int get_fpr_num(string key);
     return -1;
 endfunction
 
-function int get_imm(string s);
-    int val;
-    if (s[1] == "x") begin
-        s = s.substr(2,s.len()-1);
-        val = s.atohex ();
-    end else if (s[0] == "-") begin
-        s = s.substr(1,s.len()-1);
-        val = 0 - s.atoi();
-    end else begin
-        val = s.atoi();
-    end
-    return val;
+
+
+typedef enum {
+    dyn,
+    rdn,
+    rmm,
+    rne,
+    rtz,
+    rup
+} frm_name_t;
+
+function frm_name_t get_frm(string s); 
+    case (s)
+        "rdn": return rdn;
+        "rmm": return rmm;
+        "rne": return rne;
+        "rtz": return rtz;
+        "rup": return rup;
+        default: return dyn;
+    endcase
 endfunction
-
-function int get_spimm(string s);
-    int val;
-    if (s[1] == "x") begin
-        s = s.substr(2,s.len()-1);
-        val = s.atohex ();
-    end else if (s[0] == "-") begin
-        s = s.substr(1,s.len()-1);
-        val = 0 - s.atoi();
-    end else begin
-        val = s.atoi();
-    end
-    return val;
-endfunction
-
-

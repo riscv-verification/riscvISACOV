@@ -1,0 +1,17 @@
+XPULPV2C,OpenHW Group CORE-V ISA X PULP v2 Custom Extension Cluster Instructions,1.3.0
+xlen,32
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+XPULPV2C,RVXPULPV2C,cv.elw,,cv_elw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_sign,RD (GPR) sign of value,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_sign,RS1 (GPR) sign of value,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RS1 Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

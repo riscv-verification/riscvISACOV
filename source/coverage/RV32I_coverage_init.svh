@@ -60,3 +60,5 @@
     xori_cg = new(); xori_cg.set_inst_name("obj_xori");
 
 
+
+

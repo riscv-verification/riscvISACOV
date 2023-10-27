@@ -22,14 +22,25 @@
 // SystemVerilog Functional Coverage Available for extensions: 
 //   RV32I
 
+
+
+// `define COVER_QUIET // Uncomment to suppress coverage messages
+
 ///////////////////////
 // Platform Options  // 
 ///////////////////////
 
 // Base ISA.  Uncomment (or use a +define) one of these:
-`define COVER_BASE_RV32I
+//`define COVER_BASE_RV32I
 //`define COVER_BASE_RV32E
+//`define COVER_BASE_RV64I
+//`define COVER_BASE_RV64E
 
+
+// Supported modes
+//`define COVER_BASE_S
+//`define COVER_BASE_U
+//`define COVER_BASE_V
 
 
 //////////////////////////
@@ -53,14 +64,15 @@
 //`define COVER_LEVEL_DV_PR_BAS
 
 // DV Privileged Extended
-`define COVER_LEVEL_DV_PR_EXT
+//`define COVER_LEVEL_DV_PR_EXT
 
 
 //////////////////////
 // Select Extensions//
 //////////////////////
-// Comment out to disable coverage
-`define COVER_RV32I
+// Uncomment (or use a +define) to enable coverage
+
+//`define COVER_RV32I
 //`define COVER_RV32I_ILLEGAL
  
 

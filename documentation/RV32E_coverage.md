@@ -37,7 +37,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
 |                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
 |                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cp_gpr_hazard | GPR hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32E                 |                |       addi |     addi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -75,7 +75,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
 |                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
 |                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cp_gpr_hazard | GPR hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32E                 |                |       andi |     andi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -187,28 +187,28 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_mem_hazard | Memory hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_mem_hazard | Memory Hazard | DV Un-privileged Basic
 |                       |                |            |             | cp_mem_unaligned | Memory unaligned access | DV Un-privileged Basic
 | RV32E                 |                |        lbu |      lbu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_mem_hazard | Memory hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_mem_hazard | Memory Hazard | DV Un-privileged Basic
 |                       |                |            |             | cp_mem_unaligned | Memory unaligned access | DV Un-privileged Basic
 | RV32E                 |                |         lh |       lh_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_mem_hazard | Memory hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_mem_hazard | Memory Hazard | DV Un-privileged Basic
 |                       |                |            |             | cp_mem_unaligned | Memory unaligned access | DV Un-privileged Basic
 | RV32E                 |                |        lhu |      lhu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_mem_hazard | Memory hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_mem_hazard | Memory Hazard | DV Un-privileged Basic
 |                       |                |            |             | cp_mem_unaligned | Memory unaligned access | DV Un-privileged Basic
 | RV32E                 |                |        lui |      lui_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -220,7 +220,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             | cp_mem_hazard | Memory hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_mem_hazard | Memory Hazard | DV Un-privileged Basic
 |                       |                |            |             | cp_mem_unaligned | Memory unaligned access | DV Un-privileged Basic
 | RV32E                 |                |         or |       or_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -245,7 +245,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
 |                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
 |                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cp_gpr_hazard | GPR hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32E                 |                |        ori |      ori_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
@@ -462,7 +462,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
 |                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
 |                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cp_gpr_hazard | GPR hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32E                 |                |         sw |       sw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
@@ -491,7 +491,7 @@ Coverpoints DV Un-privileged Basic:  112
 |                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
 |                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
 |                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cp_gpr_hazard | GPR hazards | DV Un-privileged Basic
+|                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32E                 |                |       xori |     xori_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic

@@ -1,7 +1,7 @@
 # riscvISACOV
 SystemVerilog Functional Coverage for RISC-V ISA
 
-This project is a work in progress (Nov. 2022) to provide the RISC-V Verification ecosystem and users an immediate solution to SystemVerilog Functional Coverage for the RISC-V ISA. The resultant source files are automatically generated from the Imperas configurable machine readable definition of the RISC-V ISA and make use of industry standards to allow widespread adoption and re-use.
+This project is a work in progress (started in early 2022) to provide the RISC-V Verification ecosystem and users an immediate solution to SystemVerilog Functional Coverage for the RISC-V ISA. The resultant source files are automatically generated from the Imperas configurable machine readable definition of the RISC-V ISA and make use of industry standards to allow widespread adoption and re-use.
 
 This work is driven by Imperas with requirements from the OpenHW Group [ARVM-FunctionalCoverage project](https://github.com/openhwgroup/programs/blob/master/TGs/verification-task-group/projects/ARVM-FunctionalCoverage/meetings/2022/monthly-report-2022-Oct-17.md).
 

@@ -20,11 +20,6 @@
 //  
  
 
-function int get_stack_fault_offset(int hart, int issue, int offset);
-    int sp = get_gpr_val(hart, issue, "x2", `SAMPLE_AFTER);
-    int addr = get_csr_val(hart, issue, `SAMPLE_AFTER, "mtval", "");
-    return (sp + offset - addr) / (XLEN/8);
-endfunction
 
 
 function int is_load_fault(int hart, int issue);

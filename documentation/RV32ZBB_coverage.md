@@ -41,7 +41,7 @@ Coverpoints Compliance Basic:  64
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
-| RV32ZBB               |          B,Zbb |      orc-b |    orc_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV32ZBB               |          B,Zbb |      orc.b |    orc_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 | RV32ZBB               | B,Zbb,Zbp,Zbkb |        orn |      orn_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
@@ -63,17 +63,17 @@ Coverpoints Compliance Basic:  64
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
-| RV32ZBB               |          B,Zbb |     sext-b |   sext_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV32ZBB               |          B,Zbb |     sext.b |   sext_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
-| RV32ZBB               |          B,Zbb |     sext-h |   sext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV32ZBB               |          B,Zbb |     sext.h |   sext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 | RV32ZBB               | B,Zbb,Zbp,Zbkb |       xnor |     xnor_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
-| RV32ZBB               |          B,Zbb |     zext-h |   zext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+| RV32ZBB               |          B,Zbb |     zext.h |   zext_h_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 

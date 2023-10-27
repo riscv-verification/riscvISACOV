@@ -1,0 +1,43 @@
+RV64ZICSR,"Zicsr, Control and Status Register(CSR) Instructions",2.0
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV64ZICSR,,csrrc,,csrrc_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RS1 Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZICSR,,csrrci,,csrrci_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZICSR,,csrrs,,csrrs_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RS1 Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZICSR,,csrrsi,,csrrsi_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZICSR,,csrrw,,csrrw_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_toggle,RS1 Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1_maxvals,RS1 Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64ZICSR,,csrrwi,,csrrwi_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage

@@ -4,19 +4,19 @@ This directory contains documentation describing what is covered for each curren
 
 Click on the extension names below for full details of instructions, covergroups, coverpoints, and coverlevels.  
 
-Extensions: 54  
-Instructions covered: 560  
-Covergroups:  560   
-Coverpoints:  5327  
+Extensions: 70  
+Instructions covered: 869  
+Covergroups:  869   
+Coverpoints:  9425  
 
 
-| Extension | Instructions | Covergroups | Coverpoints |
+| Extension | Instructions/Scenarios | Covergroups | Coverpoints |
 | ----------| ------------ | ----------- | ----------- |
 | [RV32I           ](RV32I_coverage.md)  |         37 |         37  |        492 |
 | [RV32E           ](RV32E_coverage.md)  |         37 |         37  |        492 |
 | [RV32M           ](RV32M_coverage.md)  |          8 |          8  |        192 |
 | [RV32F           ](RV32F_coverage.md)  |         26 |         26  |        405 |
-| [RV32ZFINX       ](RV32ZFINX_coverage.md)  |         22 |         22  |        372 |
+| [RV32ZFINX       ](RV32ZFINX_coverage.md)  |          0 |          0  |          0 |
 | [RV32ZBA         ](RV32ZBA_coverage.md)  |          3 |          3  |         12 |
 | [RV32ZBB         ](RV32ZBB_coverage.md)  |         18 |         18  |         64 |
 | [RV32ZBC         ](RV32ZBC_coverage.md)  |          3 |          3  |         12 |
@@ -39,6 +39,9 @@ Coverpoints:  5327
 | [RV32ZKNH        ](RV32ZKNH_coverage.md)  |         10 |         10  |         70 |
 | [RV32ZKSED       ](RV32ZKSED_coverage.md)  |          2 |          2  |          8 |
 | [RV32ZKSH        ](RV32ZKSH_coverage.md)  |          2 |          2  |          8 |
+| [RV32ZICSR       ](RV32ZICSR_coverage.md)  |          6 |          6  |         33 |
+| [RV32PRIVM       ](RV32PRIVM_coverage.md)  |          0 |          0  |          0 |
+| [RV32PRIVS       ](RV32PRIVS_coverage.md)  |          0 |          0  |          0 |
 | [RV64I           ](RV64I_coverage.md)  |         49 |         49  |        672 |
 | [RV64M           ](RV64M_coverage.md)  |         13 |         13  |        312 |
 | [RV64F           ](RV64F_coverage.md)  |         30 |         30  |        461 |
@@ -65,7 +68,20 @@ Coverpoints:  5327
 | [RV64ZKNH        ](RV64ZKNH_coverage.md)  |          8 |          8  |         32 |
 | [RV64ZKSED       ](RV64ZKSED_coverage.md)  |          2 |          2  |          8 |
 | [RV64ZKSH        ](RV64ZKSH_coverage.md)  |          2 |          2  |          8 |
-| [RVVI_METRICS    ](RVVI_METRICS_coverage.md)  |          1 |          1  |          8 |
+| [RV64ZICSR       ](RV64ZICSR_coverage.md)  |          6 |          6  |         33 |
+| [RV64PRIVM       ](RV64PRIVM_coverage.md)  |          0 |          0  |          0 |
+| [RV64PRIVS       ](RV64PRIVS_coverage.md)  |          0 |          0  |          0 |
+| [RVVI_METRICS    ](RVVI_METRICS_coverage.md)  |          0 |          0  |          0 |
+| [RSC_MMU_SV32    ](RSC_MMU_SV32_coverage.md)  |          0 |          0  |          0 |
+| [RSC_MMU_SV39    ](RSC_MMU_SV39_coverage.md)  |          0 |          0  |          0 |
+| [RSC_MMU_SV48    ](RSC_MMU_SV48_coverage.md)  |          0 |          0  |          0 |
+| [RSC_MMU_SV57    ](RSC_MMU_SV57_coverage.md)  |          0 |          0  |          0 |
+| [XPULPV2         ](XPULPV2_coverage.md)  |        319 |        319  |       4400 |
+| [XPULPV2C        ](XPULPV2C_coverage.md)  |          1 |          1  |         12 |
+| [RV32PMP         ](RV32PMP_coverage.md)  |          0 |          0  |          0 |
+| [RV64PMP         ](RV64PMP_coverage.md)  |          0 |          0  |          0 |
+| [RV32EPMP        ](RV32EPMP_coverage.md)  |          0 |          0  |          0 |
+| [RV64EPMP        ](RV64EPMP_coverage.md)  |          0 |          0  |          0 |
 
 
 

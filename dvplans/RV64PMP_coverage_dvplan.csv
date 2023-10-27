@@ -1,0 +1,56 @@
+RV64PMP,"PMP, Physical Memory Protection",1.12
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV64PMP,,pmpcfg0,"PMP, Physical Memory Protection",pmpcfg0_cg,,,,,,
+,,,,,cp_pmpcfg0_pmp0cfg_xwr,pmpcfg0 (CSR) field pmp0 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp0cfg_a,pmpcfg0 (CSR) field pmp0 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp0cfg_l,pmpcfg0 (CSR) field pmp0 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp1cfg_xwr,pmpcfg0 (CSR) field pmp1 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp1cfg_a,pmpcfg0 (CSR) field pmp1 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp1cfg_l,pmpcfg0 (CSR) field pmp1 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp2cfg_xwr,pmpcfg0 (CSR) field pmp2 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp2cfg_a,pmpcfg0 (CSR) field pmp2 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp2cfg_l,pmpcfg0 (CSR) field pmp2 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp3cfg_xwr,pmpcfg0 (CSR) field pmp3 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp3cfg_a,pmpcfg0 (CSR) field pmp3 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp3cfg_l,pmpcfg0 (CSR) field pmp3 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp4cfg_xwr,pmpcfg0 (CSR) field pmp4 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp4cfg_a,pmpcfg0 (CSR) field pmp4 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp4cfg_l,pmpcfg0 (CSR) field pmp4 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp5cfg_xwr,pmpcfg0 (CSR) field pmp5 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp5cfg_a,pmpcfg0 (CSR) field pmp5 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp5cfg_l,pmpcfg0 (CSR) field pmp5 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp6cfg_xwr,pmpcfg0 (CSR) field pmp6 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp6cfg_a,pmpcfg0 (CSR) field pmp6 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp6cfg_l,pmpcfg0 (CSR) field pmp6 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp7cfg_xwr,pmpcfg0 (CSR) field pmp7 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp7cfg_a,pmpcfg0 (CSR) field pmp7 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg0_pmp7cfg_l,pmpcfg0 (CSR) field pmp7 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64PMP,,pmpcfg2,"PMP, Physical Memory Protection",pmpcfg2_cg,,,,,,
+,,,,,cp_pmpcfg2_pmp8cfg_xwr,pmpcfg2 (CSR) field pmp8 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp8cfg_a,pmpcfg2 (CSR) field pmp8 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp8cfg_l,pmpcfg2 (CSR) field pmp8 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp9cfg_xwr,pmpcfg2 (CSR) field pmp9 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp9cfg_a,pmpcfg2 (CSR) field pmp9 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp9cfg_l,pmpcfg2 (CSR) field pmp9 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp10cfg_xwr,pmpcfg2 (CSR) field pmp10 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp10cfg_a,pmpcfg2 (CSR) field pmp10 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp10cfg_l,pmpcfg2 (CSR) field pmp10 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp11cfg_xwr,pmpcfg2 (CSR) field pmp11 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp11cfg_a,pmpcfg2 (CSR) field pmp11 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp11cfg_l,pmpcfg2 (CSR) field pmp11 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp12cfg_xwr,pmpcfg2 (CSR) field pmp12 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp12cfg_a,pmpcfg2 (CSR) field pmp12 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp12cfg_l,pmpcfg2 (CSR) field pmp12 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp13cfg_xwr,pmpcfg2 (CSR) field pmp13 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp13cfg_a,pmpcfg2 (CSR) field pmp13 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp13cfg_l,pmpcfg2 (CSR) field pmp13 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp14cfg_xwr,pmpcfg2 (CSR) field pmp14 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp14cfg_a,pmpcfg2 (CSR) field pmp14 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp14cfg_l,pmpcfg2 (CSR) field pmp14 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp15cfg_xwr,pmpcfg2 (CSR) field pmp15 xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp15cfg_a,pmpcfg2 (CSR) field pmp15 a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_pmpcfg2_pmp15cfg_l,pmpcfg2 (CSR) field pmp15 l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

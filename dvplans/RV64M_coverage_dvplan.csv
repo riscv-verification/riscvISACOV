@@ -26,7 +26,7 @@ RV64M,M,div,,div_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,divu,,divu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -51,7 +51,7 @@ RV64M,M,divu,,divu_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,divuw,,divuw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -76,7 +76,7 @@ RV64M,M,divuw,,divuw_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,divw,,divw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -101,7 +101,7 @@ RV64M,M,divw,,divw_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,"M,Zmmul",mul,,mul_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -126,7 +126,7 @@ RV64M,"M,Zmmul",mul,,mul_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,"M,Zmmul",mulh,,mulh_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -151,7 +151,7 @@ RV64M,"M,Zmmul",mulh,,mulh_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,"M,Zmmul",mulhsu,,mulhsu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -176,7 +176,7 @@ RV64M,"M,Zmmul",mulhsu,,mulhsu_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,"M,Zmmul",mulhu,,mulhu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -201,7 +201,7 @@ RV64M,"M,Zmmul",mulhu,,mulhu_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,"M,Zmmul",mulw,,mulw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -226,7 +226,7 @@ RV64M,"M,Zmmul",mulw,,mulw_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,rem,,rem_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -251,7 +251,7 @@ RV64M,M,rem,,rem_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,remu,,remu_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -276,7 +276,7 @@ RV64M,M,remu,,remu_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,remuw,,remuw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -301,7 +301,7 @@ RV64M,M,remuw,,remuw_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV64M,M,remw,,remw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -326,4 +326,4 @@ RV64M,M,remw,,remw_cg,,,,,,
 ,,,,,cr_rd_rs1,Cross coverage of RD and RS1 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs2,Cross coverage of RD and RS2 register assignment,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_rs1_rs2,"Cross coverage of RD, RS1, and RS2 register assignment",DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_gpr_hazard,GPR hazards,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_gpr_hazard,GPR Hazard,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

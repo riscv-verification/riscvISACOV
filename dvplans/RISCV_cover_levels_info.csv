@@ -52,6 +52,12 @@ Compliance Basic,
 ,Simulator RVVI metric insbin compares
 ,Simulator RVVI metric traps
 ,Simulator RVVI metric mismatches
+,HW Loop L
+,HW Loop uimmL
+,IS3
+,IS2
+,Imm5 sign
+,Imm6 sign
 ,
 Compliance Extended,
 ,Compare RS1 and RS2 register assignment
@@ -61,12 +67,14 @@ Compliance Extended,
 ,RS1P Toggle bits
 ,RS2 Toggle bits
 ,RS2P Toggle bits
+,RS3 Toggle bits
 ,RD Max values
 ,RDP Max values
 ,RS1 Max values
 ,RS1P Max values
 ,RS2 Max values
 ,RS2P Max values
+,RS3 Max values
 ,FD FRM (ins rounding mode) Cross
 ,FS1 FRM (ins rounding mode) Cross
 ,FS2 FRM (ins rounding mode) Cross
@@ -92,13 +100,34 @@ Compliance Extended,
 ,sequence step during which fault occurred (pop)
 ,Type of Fault that occurred during load
 ,Type of Fault that occurred during store
+,"16bit, vector-vector RD Toggle bits"
+,"16bit, vector-vector RS1 Toggle bits"
+,"Normal mode, 16bit, vector-vector RS2 Toggle bits"
+,"16bit, vector-vector RD Max values"
+,"16bit, vector-vector RS1 Max values"
+,"Normal mode, 16bit, vector-vector RS2 Max values"
+,"8bit, vector-vector RD Toggle bits"
+,"8bit, vector-vector RS1 Toggle bits"
+,"Normal mode, 8bit, vector-vector RS2 Toggle bits"
+,"8bit, vector-vector RD Max values"
+,"8bit, vector-vector RS1 Max values"
+,"Normal mode, 8bit, vector-vector RS2 Max values"
+,"Scalar Rep. mode, 16bit, vector-scalar RS2 Max values"
+,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Max values"
+,"Scalar Rep. mode, 16bit, vector-scalar RS2 Toggle bits"
+,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Toggle bits"
 ,
 DV Un-privileged Basic,
 ,RD and RS1 register (assignment) WAR Hazard
 ,RD and RS2 register (assignment) WAR Hazard
 ,Cross coverage of RD and RS1 register assignment
 ,Cross coverage of RD and RS2 register assignment
+,Cross coverage of RS1 and RS2 register assignment
 ,"Cross coverage of RD, RS1, and RS2 register assignment"
+,"Cross coverage of RS1, RS2, and RS3 register assignment"
+,GPR Hazard
+,Memory Hazard
+,Memory unaligned access
 ,FD FPU Special values
 ,FS1 FPU Special values
 ,FS2 FPU Special values
@@ -186,7 +215,11 @@ DV Privileged Basic,
 ,pmpcfg2 (CSR) field pmp15 xwr
 ,pmpcfg2 (CSR) field pmp15 a
 ,pmpcfg2 (CSR) field pmp15 l
-,MMU successful Page Table walk
+,MMU stage
+,MMU mode
+,MMU level
+,MMU result
+,MMU cross
 ,
 DV Privileged Extended,
 ,

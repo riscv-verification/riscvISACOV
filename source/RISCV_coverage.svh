@@ -20,6 +20,7 @@
 //  
   
 `include "RISCV_coverage_config.svh" 
+`include "RISCV_csr_config.svh"
 `include "coverage/RISCV_coverage_pkg.svh"
 
 
@@ -44,9 +45,12 @@ class coverage #(
     function void sample(bit trap, int hart, int issue, string disass); 
         save_rvvi_data(trap, hart, issue, disass);
         
-        sample_extensions(trap, hart, issue, disass);
+        sample_extensions(hart, issue);
         super.sample_idv_metrics();
-
+        if (csrs_changed(hart, issue)) begin
+            sample_csrs(hart, issue);
+        end
+        
         // Sample custom covergroups here
         
     endfunction
