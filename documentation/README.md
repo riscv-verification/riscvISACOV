@@ -5,9 +5,9 @@ This directory contains documentation describing what is covered for each curren
 Click on the extension names below for full details of instructions, covergroups, coverpoints, and coverlevels.  
 
 Extensions: 70  
-Instructions covered: 869  
-Covergroups:  869   
-Coverpoints:  9425  
+Instructions covered: 891  
+Covergroups:  891   
+Coverpoints:  9797  
 
 
 | Extension | Instructions/Scenarios | Covergroups | Coverpoints |
@@ -16,7 +16,7 @@ Coverpoints:  9425
 | [RV32E           ](RV32E_coverage.md)  |         37 |         37  |        492 |
 | [RV32M           ](RV32M_coverage.md)  |          8 |          8  |        192 |
 | [RV32F           ](RV32F_coverage.md)  |         26 |         26  |        405 |
-| [RV32ZFINX       ](RV32ZFINX_coverage.md)  |          0 |          0  |          0 |
+| [RV32ZFINX       ](RV32ZFINX_coverage.md)  |         22 |         22  |        372 |
 | [RV32ZBA         ](RV32ZBA_coverage.md)  |          3 |          3  |         12 |
 | [RV32ZBB         ](RV32ZBB_coverage.md)  |         18 |         18  |         64 |
 | [RV32ZBC         ](RV32ZBC_coverage.md)  |          3 |          3  |         12 |
