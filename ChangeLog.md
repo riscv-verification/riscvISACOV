@@ -23,9 +23,13 @@
 
 This CHANGELOG contains information for the riscvISACOV functional coverage files.  
 
+
+Added Atomic instruction extension
+Added c.addi16sp and c.addi4spn instructions that were missing
+
 ---
-Date 2023-October-27 
-Release 20231016.0 
+Date 2023-October-30 
+Release 20231026.0 
 
 Fixed bug in Zfinx such that it now uses GPR registers in the coverage.
 

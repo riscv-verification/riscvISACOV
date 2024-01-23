@@ -2,224 +2,225 @@ Coverage levels and the cover types that are included in them.
 ,
 Coverage Level,Coverpoint Description
 Compliance Basic,
-,CSR destination
-,VMUL value (vectors)
-,Cross coverage of RS1 sign and RS2 sign
-,IS2
-,"Value of fcsr CSR, fflags field"
-,Cross coverage of RD sign and RS1 sign
-,Simulator RVVI metric mismatches
-,CSR source
-,VS3 (VR) register assignment
-,Immediate value (basic)
-,Immediate value sign
-,VM value (vectors)
-,Sreg register assignment
-,jmp value
-,"Value of frm CSR, fflags field"
-,JVT index
-,V0 value (vectors)
-,VD (VR) register assignment
-,WD value (vectors)
+,RD (GPR) register assignment
+,RS1 (GPR) register assignment
 ,RS2 (GPR) register assignment
 ,Branch offset
+,CSR source
+,CSR destination
+,Immediate value sign
+,Immediate Shift
+,Immediate values
+,jmp value
+,Cross coverage of RD sign and RS1 sign
+,Cross coverage of RS1 sign and RS2 sign
+,Cross coverage of RS1 sign and Imm sign
+,VSEW value (vectors)
+,VMUL value (vectors)
+,VTA value (vectors)
+,VMA value (vectors)
+,VD (VR) register assignment
+,VM value (vectors)
+,VS3 (VR) register assignment
+,VS2 (VR) register assignment
+,VS1 (VR) register assignment
+,V0 value (vectors)
+,Immediate value (vectors)
+,WD value (vectors)
+,NF value (vectors)
+,RS3 (GPR) register assignment
+,BS value
+,RCON value
+,FD register assignment
 ,FS1 register assignment
 ,FS2 register assignment
 ,FS3 register assignment
-,HW Loop L
 ,Floating Point FRM (Rounding mode) given as an operand
-,Simulator RVVI metric retires
-,VTA value (vectors)
-,VMA value (vectors)
 ,"Value of fcsr CSR, frm field"
-,Simulator RVVI metric CSR compares
-,RD (GPR) register assignment
-,VSEW value (vectors)
-,BS value
-,RCON value
-,RS1 (GPR) register assignment
-,IS3
-,HW Loop uimmL
-,Simulator RVVI metric cycles
-,RS3 (GPR) register assignment
-,Stack register List
-,FD register assignment
-,Simulator RVVI metric GPR compares
-,Simulator RVVI metric insbin compares
+,"Value of fcsr CSR, fflags field"
 ,"Value of frm CSR, frm field"
-,Immediate value (vectors)
-,VS1 (VR) register assignment
-,Stack adjust value (popd)
-,Simulator RVVI metric PC compares
-,Imm5 sign
-,NF value (vectors)
-,Cross coverage of RS1 sign and Imm sign
-,VS2 (VR) register assignment
-,Imm6 sign
+,"Value of frm CSR, fflags field"
+,Immediate value (basic)
+,Stack register List
 ,Stack adjust value (push)
+,Stack adjust value (popd)
+,Sreg register assignment
+,JVT index
+,Simulator RVVI metric retires
+,Simulator RVVI metric cycles
+,Simulator RVVI metric PC compares
+,Simulator RVVI metric GPR compares
+,Simulator RVVI metric CSR compares
+,Simulator RVVI metric insbin compares
 ,Simulator RVVI metric traps
+,Simulator RVVI metric mismatches
+,HW Loop L
+,HW Loop uimmL
+,IS3
+,IS2
+,Imm5 sign
+,Imm6 sign
 ,
 Compliance Extended,
-,"8bit, vector-vector RD Max values"
 ,Compare RS1 and RS2 register assignment
-,sequence step during which fault occurred (pop)
-,RDP Toggle bits
-,Cross coverage of sreg list and stack adjust (pop)
-,"Scalar Rep. mode, 16bit, vector-scalar RS2 Max values"
-,FS2 RS1 Cross
-,RS1 Toggle bits
-,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Max values"
-,"16bit, vector-vector RD Toggle bits"
-,Sreg2 Toggle bits
-,RS1P Max values
-,RS2P Max values
-,"Normal mode, 8bit, vector-vector RS2 Toggle bits"
-,register store during which fault occurred
-,"Normal mode, 16bit, vector-vector RS2 Toggle bits"
-,RS1P Toggle bits
-,"16bit, vector-vector RS1 Max values"
-,"Normal mode, 8bit, vector-vector RS2 Max values"
-,"Normal mode, 16bit, vector-vector RS2 Max values"
-,Cross coverage of sreg list and stack adjust (push)
-,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Toggle bits"
-,FS3 FRM (ins rounding mode) Cross
-,"Scalar Rep. mode, 16bit, vector-scalar RS2 Toggle bits"
-,Sreg2 Max values
-,RDP Max values
-,RS3 Max values
 ,RD Toggle bits
-,"8bit, vector-vector RS1 Max values"
-,FS1 FS2 Cross
-,register load during which fault occurred
-,RS1 Max values
-,FS1 FS2 FS3 Cross
-,FD CSR.FRM (ins rounding mode) Cross
-,"8bit, vector-vector RD Toggle bits"
-,Sreg1 Max values
-,RS2 Max values
+,RDP Toggle bits
+,RS1 Toggle bits
+,RS1P Toggle bits
 ,RS2 Toggle bits
-,"16bit, vector-vector RD Max values"
-,FS1 FRM (ins rounding mode) Cross
-,Sreg1 Toggle bits
-,"8bit, vector-vector RS1 Toggle bits"
-,FS2 FRM (ins rounding mode) Cross
 ,RS2P Toggle bits
-,"16bit, vector-vector RS1 Toggle bits"
-,RD Max values
-,FD RS1 Cross
-,sequence step during which fault occurred (push)
-,FD FS2 Cross
-,Type of Fault that occurred during load
-,FD FRM (ins rounding mode) Cross
-,RD FS1 Cross
 ,RS3 Toggle bits
+,RD Max values
+,RDP Max values
+,RS1 Max values
+,RS1P Max values
+,RS2 Max values
+,RS2P Max values
+,RS3 Max values
+,FD FRM (ins rounding mode) Cross
+,FS1 FRM (ins rounding mode) Cross
+,FS2 FRM (ins rounding mode) Cross
+,FS3 FRM (ins rounding mode) Cross
 ,FD FS1 Cross
+,FD FS2 Cross
 ,FD FS3 Cross
+,FS1 FS2 Cross
+,FD RS1 Cross
+,FS2 RS1 Cross
+,RD FS1 Cross
+,FD CSR.FRM (ins rounding mode) Cross
+,Sreg1 Toggle bits
+,Sreg1 Max values
+,Sreg2 Toggle bits
+,Sreg2 Max values
+,Cross coverage of sreg list and stack adjust (push)
+,Cross coverage of sreg list and stack adjust (pop)
+,register store during which fault occurred
+,register load during which fault occurred
+,sequence step during which fault occurred (push)
+,sequence step during which fault occurred (pop)
+,Type of Fault that occurred during load
 ,Type of Fault that occurred during store
+,"16bit, vector-vector RD Toggle bits"
+,"16bit, vector-vector RS1 Toggle bits"
+,"Normal mode, 16bit, vector-vector RS2 Toggle bits"
+,"16bit, vector-vector RD Max values"
+,"16bit, vector-vector RS1 Max values"
+,"Normal mode, 16bit, vector-vector RS2 Max values"
+,"8bit, vector-vector RD Toggle bits"
+,"8bit, vector-vector RS1 Toggle bits"
+,"Normal mode, 8bit, vector-vector RS2 Toggle bits"
+,"8bit, vector-vector RD Max values"
+,"8bit, vector-vector RS1 Max values"
+,"Normal mode, 8bit, vector-vector RS2 Max values"
+,"Scalar Rep. mode, 16bit, vector-scalar RS2 Max values"
+,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Max values"
+,"Scalar Rep. mode, 16bit, vector-scalar RS2 Toggle bits"
+,"Scalar Rep. mode, 8bit,  vector-scalar RS2 Toggle bits"
 ,
 DV Un-privileged Basic,
-,FS3 FPU Special values
-,"Cross coverage of RD, RS1, and RS2 register assignment"
-,Cross coverage of RD and RS1 register assignment
-,FS2 FPU values Cross
-,Cross coverage of RD and RS2 register assignment
-,FD FPU Special values
-,FS1 FPU values Cross
-,RD and RS2 register (assignment) WAR Hazard
-,FS1 FPU Special values
-,Cross coverage of RS1 and RS2 register assignment
-,FS2 FPU Special values
-,Memory unaligned access
-,GPR Hazard
 ,RD and RS1 register (assignment) WAR Hazard
-,FD FPU values Cross
+,RD and RS2 register (assignment) WAR Hazard
+,Cross coverage of RD and RS1 register assignment
+,Cross coverage of RD and RS2 register assignment
+,Cross coverage of RS1 and RS2 register assignment
+,"Compare of RD, RS1, and RS2 register same"
+,"Compare of RS1, RS2, and RS3 register same"
+,GPR Hazard
 ,Memory Hazard
+,Memory unaligned access
+,FD FPU Special values
+,FS1 FPU Special values
+,FS2 FPU Special values
+,FS3 FPU Special values
+,FD FPU values Cross
+,FS1 FPU values Cross
+,FS2 FPU values Cross
 ,FS3 FPU values Cross
-,"Cross coverage of RS1, RS2, and RS3 register assignment"
 ,
 DV Un-privileged Extended,
 ,
 DV Privileged Basic,
-,pmpcfg0 (CSR) field pmp0 l
-,pmpcfg1 (CSR) field pmp5 l
-,pmpcfg2 (CSR) field pmp13 a
-,pmpcfg2 (CSR) field pmp14 a
-,pmpcfg2 (CSR) field pmp9 a
-,pmpcfg0 (CSR) field pmp4 a
-,pmpcfg0 (CSR) field pmp4 xwr
-,pmpcfg2 (CSR) field pmp12 l
-,pmpcfg2 (CSR) field pmp11 a
-,pmpcfg2 (CSR) field pmp14 l
-,pmpcfg0 (CSR) field pmp7 l
-,pmpcfg2 (CSR) field pmp12 a
-,pmpcfg0 (CSR) field pmp4 l
-,pmpcfg1 (CSR) field pmp4 l
-,pmpcfg3 (CSR) field pmp15 a
-,pmpcfg0 (CSR) field pmp1 l
-,pmpcfg0 (CSR) field pmp6 a
-,pmpcfg2 (CSR) field pmp15 l
-,pmpcfg1 (CSR) field pmp6 l
-,pmpcfg3 (CSR) field pmp14 xwr
-,pmpcfg2 (CSR) field pmp9 xwr
-,pmpcfg2 (CSR) field pmp10 xwr
-,pmpcfg0 (CSR) field pmp3 xwr
-,mseccfg (CSR) field mmwp
-,MMU stage
-,pmpcfg0 (CSR) field pmp6 xwr
-,pmpcfg2 (CSR) field pmp15 xwr
-,mseccfg (CSR) field mml
-,MMU result
-,pmpcfg1 (CSR) field pmp6 xwr
-,pmpcfg2 (CSR) field pmp8 xwr
-,pmpcfg1 (CSR) field pmp4 a
-,pmpcfg1 (CSR) field pmp5 a
-,pmpcfg1 (CSR) field pmp5 xwr
-,pmpcfg2 (CSR) field pmp12 xwr
-,pmpcfg3 (CSR) field pmp15 xwr
-,pmpcfg0 (CSR) field pmp5 l
-,pmpcfg3 (CSR) field pmp13 xwr
-,pmpcfg2 (CSR) field pmp8 a
-,pmpcfg2 (CSR) field pmp10 a
-,pmpcfg0 (CSR) field pmp7 a
 ,mseccfg (CSR) field rlb
-,pmpcfg0 (CSR) field pmp3 a
-,pmpcfg2 (CSR) field pmp9 l
-,pmpcfg2 (CSR) field pmp8 l
-,pmpcfg0 (CSR) field pmp3 l
-,pmpcfg2 (CSR) field pmp10 l
-,pmpcfg0 (CSR) field pmp2 a
-,pmpcfg3 (CSR) field pmp13 a
-,pmpcfg3 (CSR) field pmp12 xwr
-,pmpcfg0 (CSR) field pmp0 a
-,pmpcfg3 (CSR) field pmp15 l
-,pmpcfg0 (CSR) field pmp6 l
-,pmpcfg2 (CSR) field pmp11 l
+,mseccfg (CSR) field mmwp
+,mseccfg (CSR) field mml
 ,pmpcfg0 (CSR) field pmp0 xwr
+,pmpcfg0 (CSR) field pmp0 a
+,pmpcfg0 (CSR) field pmp0 l
 ,pmpcfg0 (CSR) field pmp1 xwr
-,pmpcfg3 (CSR) field pmp13 l
-,pmpcfg1 (CSR) field pmp7 l
-,MMU cross
+,pmpcfg0 (CSR) field pmp1 a
+,pmpcfg0 (CSR) field pmp1 l
 ,pmpcfg0 (CSR) field pmp2 xwr
-,pmpcfg3 (CSR) field pmp14 a
+,pmpcfg0 (CSR) field pmp2 a
+,pmpcfg0 (CSR) field pmp2 l
+,pmpcfg0 (CSR) field pmp3 xwr
+,pmpcfg0 (CSR) field pmp3 a
+,pmpcfg0 (CSR) field pmp3 l
+,pmpcfg1 (CSR) field pmp4 xwr
+,pmpcfg1 (CSR) field pmp4 a
+,pmpcfg1 (CSR) field pmp4 l
+,pmpcfg1 (CSR) field pmp5 xwr
+,pmpcfg1 (CSR) field pmp5 a
+,pmpcfg1 (CSR) field pmp5 l
+,pmpcfg1 (CSR) field pmp6 xwr
+,pmpcfg1 (CSR) field pmp6 a
+,pmpcfg1 (CSR) field pmp6 l
 ,pmpcfg1 (CSR) field pmp7 xwr
+,pmpcfg1 (CSR) field pmp7 a
+,pmpcfg1 (CSR) field pmp7 l
+,pmpcfg0 (CSR) field pmp4 xwr
+,pmpcfg0 (CSR) field pmp4 a
+,pmpcfg0 (CSR) field pmp4 l
 ,pmpcfg0 (CSR) field pmp5 xwr
 ,pmpcfg0 (CSR) field pmp5 a
-,MMU level
-,pmpcfg3 (CSR) field pmp14 l
-,pmpcfg2 (CSR) field pmp13 xwr
-,pmpcfg0 (CSR) field pmp1 a
-,pmpcfg1 (CSR) field pmp7 a
-,pmpcfg2 (CSR) field pmp14 xwr
-,pmpcfg3 (CSR) field pmp12 a
-,pmpcfg2 (CSR) field pmp15 a
-,pmpcfg1 (CSR) field pmp6 a
-,pmpcfg1 (CSR) field pmp4 xwr
-,pmpcfg2 (CSR) field pmp13 l
+,pmpcfg0 (CSR) field pmp5 l
+,pmpcfg0 (CSR) field pmp6 xwr
+,pmpcfg0 (CSR) field pmp6 a
+,pmpcfg0 (CSR) field pmp6 l
 ,pmpcfg0 (CSR) field pmp7 xwr
-,pmpcfg3 (CSR) field pmp12 l
-,pmpcfg0 (CSR) field pmp2 l
+,pmpcfg0 (CSR) field pmp7 a
+,pmpcfg0 (CSR) field pmp7 l
+,pmpcfg2 (CSR) field pmp8 xwr
+,pmpcfg2 (CSR) field pmp8 a
+,pmpcfg2 (CSR) field pmp8 l
+,pmpcfg2 (CSR) field pmp9 xwr
+,pmpcfg2 (CSR) field pmp9 a
+,pmpcfg2 (CSR) field pmp9 l
+,pmpcfg2 (CSR) field pmp10 xwr
+,pmpcfg2 (CSR) field pmp10 a
+,pmpcfg2 (CSR) field pmp10 l
 ,pmpcfg2 (CSR) field pmp11 xwr
+,pmpcfg2 (CSR) field pmp11 a
+,pmpcfg2 (CSR) field pmp11 l
+,pmpcfg3 (CSR) field pmp12 xwr
+,pmpcfg3 (CSR) field pmp12 a
+,pmpcfg3 (CSR) field pmp12 l
+,pmpcfg3 (CSR) field pmp13 xwr
+,pmpcfg3 (CSR) field pmp13 a
+,pmpcfg3 (CSR) field pmp13 l
+,pmpcfg3 (CSR) field pmp14 xwr
+,pmpcfg3 (CSR) field pmp14 a
+,pmpcfg3 (CSR) field pmp14 l
+,pmpcfg3 (CSR) field pmp15 xwr
+,pmpcfg3 (CSR) field pmp15 a
+,pmpcfg3 (CSR) field pmp15 l
+,pmpcfg2 (CSR) field pmp12 xwr
+,pmpcfg2 (CSR) field pmp12 a
+,pmpcfg2 (CSR) field pmp12 l
+,pmpcfg2 (CSR) field pmp13 xwr
+,pmpcfg2 (CSR) field pmp13 a
+,pmpcfg2 (CSR) field pmp13 l
+,pmpcfg2 (CSR) field pmp14 xwr
+,pmpcfg2 (CSR) field pmp14 a
+,pmpcfg2 (CSR) field pmp14 l
+,pmpcfg2 (CSR) field pmp15 xwr
+,pmpcfg2 (CSR) field pmp15 a
+,pmpcfg2 (CSR) field pmp15 l
+,MMU stage
 ,MMU mode
+,MMU level
+,MMU result
+,MMU cross
 ,
 DV Privileged Extended,
 ,

@@ -2,7 +2,7 @@ RV32EPMP,"Smepmp, Physical Memory Protection",0.9.5
 xlen,32
 ""
 Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
-RV32EPMP,,mseccfg,"Smepmp, Physical Memory Protection",mseccfg_cg,,,,,,
+RV32EPMP,,mseccfg,"Smepmp, Physical Memory Protection",csr_mseccfg_cg,,,,,,
 ,,,,,cp_mseccfg_rlb,mseccfg (CSR) field rlb,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mseccfg_mmwp,mseccfg (CSR) field mmwp,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_mseccfg_mml,mseccfg (CSR) field mml,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage

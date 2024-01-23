@@ -11,6 +11,7 @@ RV32ZBS,"B,Zbs",bclri,Single-Bit Clear (Immediate),bclri_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_ones_zeros,Immediate value ones and zeros,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZBS,"B,Zbs",bext,Bit Extract,bext_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -21,6 +22,7 @@ RV32ZBS,"B,Zbs",bexti,Bit Extract,bexti_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_ones_zeros,Immediate value ones and zeros,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZBS,"B,Zbs",binv,Bit Invert,binv_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -31,6 +33,7 @@ RV32ZBS,"B,Zbs",binvi,Bit Invert,binvi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_ones_zeros,Immediate value ones and zeros,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZBS,"B,Zbs",bset,Bit Set,bset_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -41,4 +44,5 @@ RV32ZBS,"B,Zbs",bseti,Bit Set,bseti_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_ones_zeros,Immediate value ones and zeros,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

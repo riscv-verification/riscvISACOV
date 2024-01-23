@@ -2,214 +2,214 @@ RV32PRIVM,"Privileged, Machine-Level ISA",1.11
 xlen,32
 ""
 Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
-RV32PRIVM,,cycle,"Privileged, Machine-Level ISA",cycle_cg,,,,,,
+RV32PRIVM,,cycle,"Privileged, Machine-Level ISA",csr_cycle_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,cycleh,"Privileged, Machine-Level ISA",cycleh_cg,,,,,,
+RV32PRIVM,,cycleh,"Privileged, Machine-Level ISA",csr_cycleh_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,instret,"Privileged, Machine-Level ISA",instret_cg,,,,,,
+RV32PRIVM,,instret,"Privileged, Machine-Level ISA",csr_instret_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,instreth,"Privileged, Machine-Level ISA",instreth_cg,,,,,,
+RV32PRIVM,,instreth,"Privileged, Machine-Level ISA",csr_instreth_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,marchid,"Privileged, Machine-Level ISA",marchid_cg,,,,,,
+RV32PRIVM,,marchid,"Privileged, Machine-Level ISA",csr_marchid_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mcycle,"Privileged, Machine-Level ISA",mcycle_cg,,,,,,
+RV32PRIVM,,mcycle,"Privileged, Machine-Level ISA",csr_mcycle_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mcycleh,"Privileged, Machine-Level ISA",mcycleh_cg,,,,,,
+RV32PRIVM,,mcycleh,"Privileged, Machine-Level ISA",csr_mcycleh_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mepc,"Privileged, Machine-Level ISA",mepc_cg,,,,,,
+RV32PRIVM,,mepc,"Privileged, Machine-Level ISA",csr_mepc_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhartid,"Privileged, Machine-Level ISA",mhartid_cg,,,,,,
+RV32PRIVM,,mhartid,"Privileged, Machine-Level ISA",csr_mhartid_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhpmcounter3h,"Privileged, Machine-Level ISA",mhpmcounter3h_cg,,,,,,
+RV32PRIVM,,mhpmcounter3h,"Privileged, Machine-Level ISA",csr_mhpmcounter3h_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhpmevent3,"Privileged, Machine-Level ISA",mhpmevent3_cg,,,,,,
+RV32PRIVM,,mhpmevent3,"Privileged, Machine-Level ISA",csr_mhpmevent3_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhpmevent4,"Privileged, Machine-Level ISA",mhpmevent4_cg,,,,,,
+RV32PRIVM,,mhpmevent4,"Privileged, Machine-Level ISA",csr_mhpmevent4_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhpmevent5,"Privileged, Machine-Level ISA",mhpmevent5_cg,,,,,,
+RV32PRIVM,,mhpmevent5,"Privileged, Machine-Level ISA",csr_mhpmevent5_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mhpmevent6,"Privileged, Machine-Level ISA",mhpmevent6_cg,,,,,,
+RV32PRIVM,,mhpmevent6,"Privileged, Machine-Level ISA",csr_mhpmevent6_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mimpid,"Privileged, Machine-Level ISA",mimpid_cg,,,,,,
+RV32PRIVM,,mimpid,"Privileged, Machine-Level ISA",csr_mimpid_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,minstret,"Privileged, Machine-Level ISA",minstret_cg,,,,,,
+RV32PRIVM,,minstret,"Privileged, Machine-Level ISA",csr_minstret_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,minstreth,"Privileged, Machine-Level ISA",minstreth_cg,,,,,,
+RV32PRIVM,,minstreth,"Privileged, Machine-Level ISA",csr_minstreth_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mscratch,"Privileged, Machine-Level ISA",mscratch_cg,,,,,,
+RV32PRIVM,,mscratch,"Privileged, Machine-Level ISA",csr_mscratch_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mtinst,"Privileged, Machine-Level ISA",mtinst_cg,,,,,,
+RV32PRIVM,,mtinst,"Privileged, Machine-Level ISA",csr_mtinst_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mtval,"Privileged, Machine-Level ISA",mtval_cg,,,,,,
+RV32PRIVM,,mtval,"Privileged, Machine-Level ISA",csr_mtval_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mtval2,"Privileged, Machine-Level ISA",mtval2_cg,,,,,,
+RV32PRIVM,,mtval2,"Privileged, Machine-Level ISA",csr_mtval2_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mvendorid,"Privileged, Machine-Level ISA",mvendorid_cg,,,,,,
+RV32PRIVM,,mvendorid,"Privileged, Machine-Level ISA",csr_mvendorid_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr0,"Privileged, Machine-Level ISA",pmpaddr0_cg,,,,,,
+RV32PRIVM,,pmpaddr0,"Privileged, Machine-Level ISA",csr_pmpaddr0_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr1,"Privileged, Machine-Level ISA",pmpaddr1_cg,,,,,,
+RV32PRIVM,,pmpaddr1,"Privileged, Machine-Level ISA",csr_pmpaddr1_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr10,"Privileged, Machine-Level ISA",pmpaddr10_cg,,,,,,
+RV32PRIVM,,pmpaddr10,"Privileged, Machine-Level ISA",csr_pmpaddr10_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr11,"Privileged, Machine-Level ISA",pmpaddr11_cg,,,,,,
+RV32PRIVM,,pmpaddr11,"Privileged, Machine-Level ISA",csr_pmpaddr11_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr12,"Privileged, Machine-Level ISA",pmpaddr12_cg,,,,,,
+RV32PRIVM,,pmpaddr12,"Privileged, Machine-Level ISA",csr_pmpaddr12_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr13,"Privileged, Machine-Level ISA",pmpaddr13_cg,,,,,,
+RV32PRIVM,,pmpaddr13,"Privileged, Machine-Level ISA",csr_pmpaddr13_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr14,"Privileged, Machine-Level ISA",pmpaddr14_cg,,,,,,
+RV32PRIVM,,pmpaddr14,"Privileged, Machine-Level ISA",csr_pmpaddr14_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr15,"Privileged, Machine-Level ISA",pmpaddr15_cg,,,,,,
+RV32PRIVM,,pmpaddr15,"Privileged, Machine-Level ISA",csr_pmpaddr15_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr2,"Privileged, Machine-Level ISA",pmpaddr2_cg,,,,,,
+RV32PRIVM,,pmpaddr2,"Privileged, Machine-Level ISA",csr_pmpaddr2_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr3,"Privileged, Machine-Level ISA",pmpaddr3_cg,,,,,,
+RV32PRIVM,,pmpaddr3,"Privileged, Machine-Level ISA",csr_pmpaddr3_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr4,"Privileged, Machine-Level ISA",pmpaddr4_cg,,,,,,
+RV32PRIVM,,pmpaddr4,"Privileged, Machine-Level ISA",csr_pmpaddr4_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr5,"Privileged, Machine-Level ISA",pmpaddr5_cg,,,,,,
+RV32PRIVM,,pmpaddr5,"Privileged, Machine-Level ISA",csr_pmpaddr5_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr6,"Privileged, Machine-Level ISA",pmpaddr6_cg,,,,,,
+RV32PRIVM,,pmpaddr6,"Privileged, Machine-Level ISA",csr_pmpaddr6_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr7,"Privileged, Machine-Level ISA",pmpaddr7_cg,,,,,,
+RV32PRIVM,,pmpaddr7,"Privileged, Machine-Level ISA",csr_pmpaddr7_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr8,"Privileged, Machine-Level ISA",pmpaddr8_cg,,,,,,
+RV32PRIVM,,pmpaddr8,"Privileged, Machine-Level ISA",csr_pmpaddr8_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpaddr9,"Privileged, Machine-Level ISA",pmpaddr9_cg,,,,,,
+RV32PRIVM,,pmpaddr9,"Privileged, Machine-Level ISA",csr_pmpaddr9_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,time,"Privileged, Machine-Level ISA",time_cg,,,,,,
+RV32PRIVM,,time,"Privileged, Machine-Level ISA",csr_time_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,timeh,"Privileged, Machine-Level ISA",timeh_cg,,,,,,
+RV32PRIVM,,timeh,"Privileged, Machine-Level ISA",csr_timeh_cg,,,,,,
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,hideleg,"Privileged, Machine-Level ISA",hideleg_cg,,,,,,
-,,,,,cp_hideleg_meip,hideleg (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_hideleg_msip,hideleg (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_hideleg_mtip,hideleg (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_hideleg_seip,hideleg (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_hideleg_ssip,hideleg (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_hideleg_stip,hideleg (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,hideleg,"Privileged, Machine-Level ISA",csr_hideleg_cg,,,,,,
+,,,,,cp_csr_hideleg_meip,hideleg (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_hideleg_msip,hideleg (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_hideleg_mtip,hideleg (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_hideleg_seip,hideleg (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_hideleg_ssip,hideleg (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_hideleg_stip,hideleg (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mcause,"Privileged, Machine-Level ISA",mcause_cg,,,,,,
-,,,,,cp_mcause_int,mcause (CSR) field int,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mcause,"Privileged, Machine-Level ISA",csr_mcause_cg,,,,,,
+,,,,,cp_csr_mcause_int,mcause (CSR) field int,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mcounteren,"Privileged, Machine-Level ISA",mcounteren_cg,,,,,,
-,,,,,cp_mcounteren_cy,mcounteren (CSR) field cy,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mcounteren_enable,mcounteren (CSR) field enable,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mcounteren_ir,mcounteren (CSR) field ir,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mcounteren_tm,mcounteren (CSR) field tm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mcounteren,"Privileged, Machine-Level ISA",csr_mcounteren_cg,,,,,,
+,,,,,cp_csr_mcounteren_cy,mcounteren (CSR) field cy,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mcounteren_enable,mcounteren (CSR) field enable,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mcounteren_ir,mcounteren (CSR) field ir,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mcounteren_tm,mcounteren (CSR) field tm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mcountinhibit,"Privileged, Machine-Level ISA",mcountinhibit_cg,,,,,,
-,,,,,cp_mcountinhibit_cy,mcountinhibit (CSR) field cy,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mcountinhibit_inhibit,mcountinhibit (CSR) field inhibit,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mcountinhibit_ir,mcountinhibit (CSR) field ir,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mcountinhibit,"Privileged, Machine-Level ISA",csr_mcountinhibit_cg,,,,,,
+,,,,,cp_csr_mcountinhibit_cy,mcountinhibit (CSR) field cy,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mcountinhibit_inhibit,mcountinhibit (CSR) field inhibit,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mcountinhibit_ir,mcountinhibit (CSR) field ir,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mideleg,"Privileged, Machine-Level ISA",mideleg_cg,,,,,,
-,,,,,cp_mideleg_meip,mideleg (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mideleg_msip,mideleg (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mideleg_mtip,mideleg (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mideleg_seip,mideleg (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mideleg_ssip,mideleg (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mideleg_stip,mideleg (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mideleg,"Privileged, Machine-Level ISA",csr_mideleg_cg,,,,,,
+,,,,,cp_csr_mideleg_meip,mideleg (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mideleg_msip,mideleg (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mideleg_mtip,mideleg (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mideleg_seip,mideleg (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mideleg_ssip,mideleg (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mideleg_stip,mideleg (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mie,"Privileged, Machine-Level ISA",mie_cg,,,,,,
-,,,,,cp_mie_meie,mie (CSR) field meie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mie_msee,mie (CSR) field msee,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mie_mtie,mie (CSR) field mtie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mie_seie,mie (CSR) field seie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mie_ssie,mie (CSR) field ssie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mie_stie,mie (CSR) field stie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mie,"Privileged, Machine-Level ISA",csr_mie_cg,,,,,,
+,,,,,cp_csr_mie_meie,mie (CSR) field meie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mie_msee,mie (CSR) field msee,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mie_mtie,mie (CSR) field mtie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mie_seie,mie (CSR) field seie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mie_ssie,mie (CSR) field ssie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mie_stie,mie (CSR) field stie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mip,"Privileged, Machine-Level ISA",mip_cg,,,,,,
-,,,,,cp_mip_meip,mip (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mip_msip,mip (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mip_mtip,mip (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mip_seip,mip (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mip_ssip,mip (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mip_stip,mip (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mip,"Privileged, Machine-Level ISA",csr_mip_cg,,,,,,
+,,,,,cp_csr_mip_meip,mip (CSR) field meip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mip_msip,mip (CSR) field msip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mip_mtip,mip (CSR) field mtip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mip_seip,mip (CSR) field seip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mip_ssip,mip (CSR) field ssip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mip_stip,mip (CSR) field stip,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,misa,"Privileged, Machine-Level ISA",misa_cg,,,,,,
-,,,,,cp_misa_exts,misa (CSR) field exts,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_misa_mxl,misa (CSR) field mxl,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,misa,"Privileged, Machine-Level ISA",csr_misa_cg,,,,,,
+,,,,,cp_csr_misa_exts,misa (CSR) field exts,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_misa_mxl,misa (CSR) field mxl,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mstatus,"Privileged, Machine-Level ISA",mstatus_cg,,,,,,
-,,,,,cp_mstatus_fs,mstatus (CSR) field fs,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_mie,mstatus (CSR) field mie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_mpie,mstatus (CSR) field mpie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_mpp,mstatus (CSR) field mpp,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_mprv,mstatus (CSR) field mprv,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_mxr,mstatus (CSR) field mxr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_sd,mstatus (CSR) field sd,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_sie,mstatus (CSR) field sie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_spie,mstatus (CSR) field spie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_spp,mstatus (CSR) field spp,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_sum,mstatus (CSR) field sum,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_tsr,mstatus (CSR) field tsr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_tvm,mstatus (CSR) field tvm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_tw,mstatus (CSR) field tw,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_ube,mstatus (CSR) field ube,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatus_xs,mstatus (CSR) field xs,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mstatus,"Privileged, Machine-Level ISA",csr_mstatus_cg,,,,,,
+,,,,,cp_csr_mstatus_fs,mstatus (CSR) field fs,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_mie,mstatus (CSR) field mie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_mpie,mstatus (CSR) field mpie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_mpp,mstatus (CSR) field mpp,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_mprv,mstatus (CSR) field mprv,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_mxr,mstatus (CSR) field mxr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_sd,mstatus (CSR) field sd,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_sie,mstatus (CSR) field sie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_spie,mstatus (CSR) field spie,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_spp,mstatus (CSR) field spp,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_sum,mstatus (CSR) field sum,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_tsr,mstatus (CSR) field tsr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_tvm,mstatus (CSR) field tvm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_tw,mstatus (CSR) field tw,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_ube,mstatus (CSR) field ube,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatus_xs,mstatus (CSR) field xs,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mstatush,"Privileged, Machine-Level ISA",mstatush_cg,,,,,,
-,,,,,cp_mstatush_mbe,mstatush (CSR) field mbe,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_mstatush_sbe,mstatush (CSR) field sbe,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mstatush,"Privileged, Machine-Level ISA",csr_mstatush_cg,,,,,,
+,,,,,cp_csr_mstatush_mbe,mstatush (CSR) field mbe,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_mstatush_sbe,mstatush (CSR) field sbe,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,mtvec,"Privileged, Machine-Level ISA",mtvec_cg,,,,,,
-,,,,,cp_mtvec_mode,mtvec (CSR) field mode,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,mtvec,"Privileged, Machine-Level ISA",csr_mtvec_cg,,,,,,
+,,,,,cp_csr_mtvec_mode,mtvec (CSR) field mode,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpcfg0,"Privileged, Machine-Level ISA",pmpcfg0_cg,,,,,,
-,,,,,cp_pmpcfg0_pmp0cfg_a,pmpcfg0 (CSR) field pmp0cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp0cfg_l,pmpcfg0 (CSR) field pmp0cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp0cfg_xwr,pmpcfg0 (CSR) field pmp0cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp1cfg_a,pmpcfg0 (CSR) field pmp1cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp1cfg_l,pmpcfg0 (CSR) field pmp1cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp1cfg_xwr,pmpcfg0 (CSR) field pmp1cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp2cfg_a,pmpcfg0 (CSR) field pmp2cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp2cfg_l,pmpcfg0 (CSR) field pmp2cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp2cfg_xwr,pmpcfg0 (CSR) field pmp2cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp3cfg_a,pmpcfg0 (CSR) field pmp3cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp3cfg_l,pmpcfg0 (CSR) field pmp3cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg0_pmp3cfg_xwr,pmpcfg0 (CSR) field pmp3cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,pmpcfg0,"Privileged, Machine-Level ISA",csr_pmpcfg0_cg,,,,,,
+,,,,,cp_csr_pmpcfg0_pmp0cfg_a,pmpcfg0 (CSR) field pmp0cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp0cfg_l,pmpcfg0 (CSR) field pmp0cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp0cfg_xwr,pmpcfg0 (CSR) field pmp0cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp1cfg_a,pmpcfg0 (CSR) field pmp1cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp1cfg_l,pmpcfg0 (CSR) field pmp1cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp1cfg_xwr,pmpcfg0 (CSR) field pmp1cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp2cfg_a,pmpcfg0 (CSR) field pmp2cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp2cfg_l,pmpcfg0 (CSR) field pmp2cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp2cfg_xwr,pmpcfg0 (CSR) field pmp2cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp3cfg_a,pmpcfg0 (CSR) field pmp3cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp3cfg_l,pmpcfg0 (CSR) field pmp3cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg0_pmp3cfg_xwr,pmpcfg0 (CSR) field pmp3cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpcfg1,"Privileged, Machine-Level ISA",pmpcfg1_cg,,,,,,
-,,,,,cp_pmpcfg1_pmp4cfg_a,pmpcfg1 (CSR) field pmp4cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp4cfg_l,pmpcfg1 (CSR) field pmp4cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp4cfg_xwr,pmpcfg1 (CSR) field pmp4cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp5cfg_a,pmpcfg1 (CSR) field pmp5cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp5cfg_l,pmpcfg1 (CSR) field pmp5cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp5cfg_xwr,pmpcfg1 (CSR) field pmp5cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp6cfg_a,pmpcfg1 (CSR) field pmp6cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp6cfg_l,pmpcfg1 (CSR) field pmp6cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp6cfg_xwr,pmpcfg1 (CSR) field pmp6cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp7cfg_a,pmpcfg1 (CSR) field pmp7cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp7cfg_l,pmpcfg1 (CSR) field pmp7cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg1_pmp7cfg_xwr,pmpcfg1 (CSR) field pmp7cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,pmpcfg1,"Privileged, Machine-Level ISA",csr_pmpcfg1_cg,,,,,,
+,,,,,cp_csr_pmpcfg1_pmp4cfg_a,pmpcfg1 (CSR) field pmp4cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp4cfg_l,pmpcfg1 (CSR) field pmp4cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp4cfg_xwr,pmpcfg1 (CSR) field pmp4cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp5cfg_a,pmpcfg1 (CSR) field pmp5cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp5cfg_l,pmpcfg1 (CSR) field pmp5cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp5cfg_xwr,pmpcfg1 (CSR) field pmp5cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp6cfg_a,pmpcfg1 (CSR) field pmp6cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp6cfg_l,pmpcfg1 (CSR) field pmp6cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp6cfg_xwr,pmpcfg1 (CSR) field pmp6cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp7cfg_a,pmpcfg1 (CSR) field pmp7cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp7cfg_l,pmpcfg1 (CSR) field pmp7cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg1_pmp7cfg_xwr,pmpcfg1 (CSR) field pmp7cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpcfg2,"Privileged, Machine-Level ISA",pmpcfg2_cg,,,,,,
-,,,,,cp_pmpcfg2_pmp10cfg_a,pmpcfg2 (CSR) field pmp10cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp10cfg_l,pmpcfg2 (CSR) field pmp10cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp10cfg_xwr,pmpcfg2 (CSR) field pmp10cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp11cfg_a,pmpcfg2 (CSR) field pmp11cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp11cfg_l,pmpcfg2 (CSR) field pmp11cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp11cfg_xwr,pmpcfg2 (CSR) field pmp11cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp8cfg_a,pmpcfg2 (CSR) field pmp8cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp8cfg_l,pmpcfg2 (CSR) field pmp8cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp8cfg_xwr,pmpcfg2 (CSR) field pmp8cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp9cfg_a,pmpcfg2 (CSR) field pmp9cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp9cfg_l,pmpcfg2 (CSR) field pmp9cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg2_pmp9cfg_xwr,pmpcfg2 (CSR) field pmp9cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,pmpcfg2,"Privileged, Machine-Level ISA",csr_pmpcfg2_cg,,,,,,
+,,,,,cp_csr_pmpcfg2_pmp10cfg_a,pmpcfg2 (CSR) field pmp10cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp10cfg_l,pmpcfg2 (CSR) field pmp10cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp10cfg_xwr,pmpcfg2 (CSR) field pmp10cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp11cfg_a,pmpcfg2 (CSR) field pmp11cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp11cfg_l,pmpcfg2 (CSR) field pmp11cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp11cfg_xwr,pmpcfg2 (CSR) field pmp11cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp8cfg_a,pmpcfg2 (CSR) field pmp8cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp8cfg_l,pmpcfg2 (CSR) field pmp8cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp8cfg_xwr,pmpcfg2 (CSR) field pmp8cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp9cfg_a,pmpcfg2 (CSR) field pmp9cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp9cfg_l,pmpcfg2 (CSR) field pmp9cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg2_pmp9cfg_xwr,pmpcfg2 (CSR) field pmp9cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32PRIVM,,pmpcfg3,"Privileged, Machine-Level ISA",pmpcfg3_cg,,,,,,
-,,,,,cp_pmpcfg3_pmp12cfg_a,pmpcfg3 (CSR) field pmp12cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp12cfg_l,pmpcfg3 (CSR) field pmp12cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp12cfg_xwr,pmpcfg3 (CSR) field pmp12cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp13cfg_a,pmpcfg3 (CSR) field pmp13cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp13cfg_l,pmpcfg3 (CSR) field pmp13cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp13cfg_xwr,pmpcfg3 (CSR) field pmp13cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp14cfg_a,pmpcfg3 (CSR) field pmp14cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp14cfg_l,pmpcfg3 (CSR) field pmp14cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp14cfg_xwr,pmpcfg3 (CSR) field pmp14cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp15cfg_a,pmpcfg3 (CSR) field pmp15cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp15cfg_l,pmpcfg3 (CSR) field pmp15cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_pmpcfg3_pmp15cfg_xwr,pmpcfg3 (CSR) field pmp15cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32PRIVM,,pmpcfg3,"Privileged, Machine-Level ISA",csr_pmpcfg3_cg,,,,,,
+,,,,,cp_csr_pmpcfg3_pmp12cfg_a,pmpcfg3 (CSR) field pmp12cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp12cfg_l,pmpcfg3 (CSR) field pmp12cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp12cfg_xwr,pmpcfg3 (CSR) field pmp12cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp13cfg_a,pmpcfg3 (CSR) field pmp13cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp13cfg_l,pmpcfg3 (CSR) field pmp13cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp13cfg_xwr,pmpcfg3 (CSR) field pmp13cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp14cfg_a,pmpcfg3 (CSR) field pmp14cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp14cfg_l,pmpcfg3 (CSR) field pmp14cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp14cfg_xwr,pmpcfg3 (CSR) field pmp14cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp15cfg_a,pmpcfg3 (CSR) field pmp15cfg_a,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp15cfg_l,pmpcfg3 (CSR) field pmp15cfg_l,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_pmpcfg3_pmp15cfg_xwr,pmpcfg3 (CSR) field pmp15cfg_xwr,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

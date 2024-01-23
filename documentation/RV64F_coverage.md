@@ -7,9 +7,9 @@ XLEN:          64
 
 Instructions:  30  
 Covergroups:   30  
-Coverpoints total:   461  
-Coverpoints Compliance Basic:  197  
-Coverpoints Compliance Extended:  137  
+Coverpoints total:   459  
+Coverpoints Compliance Basic:  199  
+Coverpoints Compliance Extended:  133  
 Coverpoints DV Un-privileged Basic:  127  
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
@@ -26,9 +26,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -167,9 +167,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -182,7 +182,7 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |   cr_rd_fs1 | RD FS1 Cross | Compliance Extended
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -194,7 +194,7 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |   cr_rd_fs1 | RD FS1 Cross | Compliance Extended
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -206,7 +206,7 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |   cr_rd_fs1 | RD FS1 Cross | Compliance Extended
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -215,6 +215,7 @@ Coverpoints DV Un-privileged Basic:  127
 | RV64F                 |              F |        flw |      flw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
@@ -234,11 +235,10 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs3_frm | FS3 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs3 | FD FS3 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
-|                       |                |            |             | cr_fs1_fs2_fs3 | FS1 FS2 FS3 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs3 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -251,9 +251,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs1 | FS1 register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -264,9 +264,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs1 | FS1 register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -287,11 +287,10 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs3_frm | FS3 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs3 | FD FS3 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
-|                       |                |            |             | cr_fs1_fs2_fs3 | FS1 FS2 FS3 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs3 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -312,9 +311,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -351,11 +350,10 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs3_frm | FS3 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs3 | FD FS3 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
-|                       |                |            |             | cr_fs1_fs2_fs3 | FS1 FS2 FS3 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs3 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -378,11 +376,10 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs3_frm | FS3 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs3 | FD FS3 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
-|                       |                |            |             | cr_fs1_fs2_fs3 | FS1 FS2 FS3 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs3 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -395,9 +392,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs1 | FS1 register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -408,9 +405,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs1 | FS1 register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -421,9 +418,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |       cp_fd | FD register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs1 | FS1 register assignment | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -440,7 +437,7 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             | cp_csr_fflags_fflags | Value of fflags CSR, fflags field | Compliance Basic
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             |  cr_fd_vals | FD FPU values Cross | DV Un-privileged Basic
@@ -457,9 +454,9 @@ Coverpoints DV Un-privileged Basic:  127
 |                       |                |            |             |   cr_fd_frm | FD FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs1_frm | FS1 FRM (ins rounding mode) Cross | Compliance Extended
 |                       |                |            |             |  cr_fs2_frm | FS2 FRM (ins rounding mode) Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs1 | FD FS1 Cross | Compliance Extended
-|                       |                |            |             |   cr_fd_fs2 | FD FS2 Cross | Compliance Extended
-|                       |                |            |             |  cr_fs1_fs2 | FS1 FS2 Cross | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs1 | Compare register assignment | Compliance Extended
+|                       |                |            |             |  cmp_fd_fs2 | Compare register assignment | Compliance Extended
+|                       |                |            |             | cmp_fs1_fs2 | Compare register assignment | Compliance Extended
 |                       |                |            |             |  cp_fd_vals | FD FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs1_vals | FS1 FPU Special values | DV Un-privileged Basic
 |                       |                |            |             | cp_fs2_vals | FS2 FPU Special values | DV Un-privileged Basic
@@ -469,6 +466,7 @@ Coverpoints DV Un-privileged Basic:  127
 | RV64F                 |              F |        fsw |      fsw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_fs2 | FS2 register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended

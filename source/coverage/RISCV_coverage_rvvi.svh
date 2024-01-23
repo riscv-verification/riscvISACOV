@@ -134,7 +134,7 @@
   
   endfunction
 
-function int csrs_changed(int hart, int issue);
+function int csrs_written(int hart, int issue);
     return traceDataQ[hart][issue][0].csr_wb != 0;
 endfunction
 

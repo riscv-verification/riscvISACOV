@@ -33,7 +33,6 @@ class RISCV_coverage
     parameter int NHART  = 1,   // Number of harts reported
     parameter int RETIRE = 1    // Number of instructions that can retire during valid event
 );
-
     `include "coverage/RISCV_coverage_rvvi.svh"
     `include "coverage/RISCV_coverage_csr.svh"
     `include "coverage/RISCV_coverage_exceptions.svh"
@@ -44,14 +43,7 @@ class RISCV_coverage
     `endif
 
     `ifdef COVER_RV32I
-        `ifdef COVER_RV32I_ILLEGAL
-            msgfatal($sformatf("Fatal error: Cannot select both COVER_RV32I and COVER_RV32I_ILLEGAL"));
-        `endif
-        `ifdef COVER_BASE_RV64I
-              msgfatal($sformatf("Fatal error: Cannot use COVER_RV32I with COVER_BASE_RV64I"));
-        `else
-            `include "coverage/RV32I_coverage.svh"     
-        `endif
+        `include "coverage/RV32I_coverage.svh"
     `endif
     `ifdef COVER_RV32I_ILLEGAL
         `include "coverage/RV32I_illegal_coverage.svh"
@@ -64,8 +56,8 @@ class RISCV_coverage
    
         this.rvvi = rvvi;
         `cover_info("//  riscvISACOV    ");         
-        `cover_info("//  Version 20231026.0\n//");  
-        `cover_info("//  Copyright (c) 2005-2023 Imperas Software Ltd. ");
+        `cover_info("//  Version 20240119.0\n//");  
+        `cover_info("//  Copyright (c) 2005-2024 Imperas Software Ltd. ");
         `cover_info("//  All Rights Reserved.\n//"); 
         `cover_info("//    Configuration:");
 
@@ -113,7 +105,93 @@ class RISCV_coverage
     `else
         `cover_info("//        DV Privileged Extended - Disabled");
     `endif
-        
+    `cover_info("//      COVER TYPES:");
+    `ifdef COVER_TYPE_ASM_COUNT
+        `cover_info("//        ASM_COUNT - Enabled");
+    `else
+        `cover_info("//        ASM_COUNT - Disabled");
+    `endif
+    `ifdef COVER_TYPE_ASSIGNMENTS
+        `cover_info("//        ASSIGNMENTS - Enabled");
+    `else
+        `cover_info("//        ASSIGNMENTS - Disabled");
+    `endif
+    `ifdef COVER_TYPE_CROSS_VALUES
+        `cover_info("//        CROSS_VALUES - Enabled");
+    `else
+        `cover_info("//        CROSS_VALUES - Disabled");
+    `endif
+    `ifdef COVER_TYPE_CSR
+        `cover_info("//        CSR - Enabled");
+    `else
+        `cover_info("//        CSR - Disabled");
+    `endif
+    `ifdef COVER_TYPE_CSR_VALUE
+        `cover_info("//        CSR_VALUE - Enabled");
+    `else
+        `cover_info("//        CSR_VALUE - Disabled");
+    `endif
+    `ifdef COVER_TYPE_EQUAL
+        `cover_info("//        EQUAL - Enabled");
+    `else
+        `cover_info("//        EQUAL - Disabled");
+    `endif
+    `ifdef COVER_TYPE_FAULTS
+        `cover_info("//        FAULTS - Enabled");
+    `else
+        `cover_info("//        FAULTS - Disabled");
+    `endif
+    `ifdef COVER_TYPE_FPVALUES
+        `cover_info("//        FPVALUES - Enabled");
+    `else
+        `cover_info("//        FPVALUES - Disabled");
+    `endif
+    `ifdef COVER_TYPE_FRM
+        `cover_info("//        FRM - Enabled");
+    `else
+        `cover_info("//        FRM - Disabled");
+    `endif
+    `ifdef COVER_TYPE_HAZARD
+        `cover_info("//        HAZARD - Enabled");
+    `else
+        `cover_info("//        HAZARD - Disabled");
+    `endif
+    `ifdef COVER_TYPE_ILLEGAL_INST
+        `cover_info("//        ILLEGAL_INST - Enabled");
+    `else
+        `cover_info("//        ILLEGAL_INST - Disabled");
+    `endif
+    `ifdef COVER_TYPE_MAXVALS
+        `cover_info("//        MAXVALS - Enabled");
+    `else
+        `cover_info("//        MAXVALS - Disabled");
+    `endif
+    `ifdef COVER_TYPE_METRIC
+        `cover_info("//        METRIC - Enabled");
+    `else
+        `cover_info("//        METRIC - Disabled");
+    `endif
+    `ifdef COVER_TYPE_REG_COMPARE
+        `cover_info("//        REG_COMPARE - Enabled");
+    `else
+        `cover_info("//        REG_COMPARE - Disabled");
+    `endif
+    `ifdef COVER_TYPE_SIGNS
+        `cover_info("//        SIGNS - Enabled");
+    `else
+        `cover_info("//        SIGNS - Disabled");
+    `endif
+    `ifdef COVER_TYPE_TOGGLE
+        `cover_info("//        TOGGLE - Enabled");
+    `else
+        `cover_info("//        TOGGLE - Disabled");
+    `endif
+    `ifdef COVER_TYPE_VALUES
+        `cover_info("//        VALUES - Enabled");
+    `else
+        `cover_info("//        VALUES - Disabled");
+    `endif
+
     `cover_info("//    EXTENSIONS:"); 
     `ifdef COVER_RV32I_IMPTEST
         `cover_info("//      RV32I_IMPTEST - Enabled (Dev Only)");
@@ -128,6 +206,8 @@ class RISCV_coverage
         `cover_info("//      RV32I_ILLEGAL - Enabled");
         `include "coverage/RV32I_coverage_init.svh"
     `endif
+
+        check_config();
 
     endfunction
 
@@ -153,6 +233,10 @@ class RISCV_coverage
     endfunction
 
     function void sample_csrs(int hart, int issue);
+        int index, num;
+        `XLEN_INT mask, value;
+        string str;
+
     endfunction
 
     function void sample_idv_metrics();

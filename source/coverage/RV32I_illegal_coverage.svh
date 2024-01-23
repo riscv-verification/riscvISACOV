@@ -29,7 +29,6 @@ covergroup add_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -45,7 +44,6 @@ covergroup addi_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add signed immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -61,7 +59,6 @@ covergroup and_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "AND";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -77,7 +74,6 @@ covergroup andi_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "And signed immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -93,7 +89,6 @@ covergroup auipc_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Add upper immediate to PC";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -109,7 +104,6 @@ covergroup beq_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Equal";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -125,7 +119,6 @@ covergroup bge_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Greater or Equal";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -141,7 +134,6 @@ covergroup bgeu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Greater or Equal Unsigned";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -157,7 +149,6 @@ covergroup blt_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Less Than";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -173,7 +164,6 @@ covergroup bltu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Less Than Unsigned";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -189,7 +179,6 @@ covergroup bne_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Branch if Not Equal";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -205,7 +194,6 @@ covergroup jal_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Jump and Link";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -221,7 +209,6 @@ covergroup jalr_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Jump and Link, register";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -237,7 +224,6 @@ covergroup lb_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Byte (8-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -253,7 +239,6 @@ covergroup lbu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Unsigned Byte (8-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -269,7 +254,6 @@ covergroup lh_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Half word (16-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -285,7 +269,6 @@ covergroup lhu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Unsigned Half word (16-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -301,7 +284,6 @@ covergroup lui_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Upper Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -317,7 +299,6 @@ covergroup lw_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Load Word (32-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -333,7 +314,6 @@ covergroup or_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "OR";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -349,7 +329,6 @@ covergroup ori_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Or signed immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -365,7 +344,6 @@ covergroup sb_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Byte (8-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -381,7 +359,6 @@ covergroup sh_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Half-word (16-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -397,7 +374,6 @@ covergroup sll_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Left Logical";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -413,7 +389,6 @@ covergroup slli_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Left Logical Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -429,7 +404,6 @@ covergroup slt_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less Than";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -445,7 +419,6 @@ covergroup slti_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less than Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -461,7 +434,6 @@ covergroup sltiu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less than Immediate Unsigned";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -477,7 +449,6 @@ covergroup sltu_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Set if Less Than Unsigned";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -493,7 +464,6 @@ covergroup sra_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Arithmetic";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -509,7 +479,6 @@ covergroup srai_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Arithmetic Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -525,7 +494,6 @@ covergroup srl_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Logical";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -541,7 +509,6 @@ covergroup srli_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Shift Right Logical Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -557,7 +524,6 @@ covergroup sub_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Subtract";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -573,7 +539,6 @@ covergroup sw_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Store Word (32-bit)";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -589,7 +554,6 @@ covergroup xor_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Exlusive OR";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -605,7 +569,6 @@ covergroup xori_cg with function sample(ins_rv32i_t ins);
     option.per_instance = 1; 
     option.comment = "Exlusive-OR Immediate";
   
-
     cp_illegal_inst : coverpoint get_csr_val(ins.hart, ins.issue, `SAMPLE_AFTER, "mcause", "") == `MCAUSE_ILLEGAL_INST  iff (ins.trap == 1 )  {
         option.comment = "Number of illegal instructions";
         bins count[]  = {1};
@@ -616,6 +579,7 @@ covergroup xori_cg with function sample(ins_rv32i_t ins);
         illegal_bins trap  = {0};
     }
 endgroup
+
 
 
 
@@ -901,6 +865,9 @@ function void rv32i_sample(int hart, int issue);
         end
     endcase
 endfunction
+
+
+
 
 
 

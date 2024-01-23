@@ -7,9 +7,9 @@ XLEN:          64
 
 Instructions:  31  
 Covergroups:   31  
-Coverpoints total:   164  
-Coverpoints Compliance Basic:  82  
-Coverpoints Compliance Extended:  80  
+Coverpoints total:   169  
+Coverpoints Compliance Basic:  91  
+Coverpoints Compliance Extended:  76  
 Coverpoints DV Un-privileged Basic:  2  
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
@@ -24,13 +24,20 @@ Coverpoints DV Un-privileged Basic:  2
 |                       |                |            |             | cp_rs2_maxvals | RS2 Max values | Compliance Extended
 | RV64C                 |          C,Zca |     c.addi |   c_addi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca | c.addi16sp | c_addi16sp_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
+|                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 | RV64C                 |          C,Zca | c.addi4spn | c_addi4spn_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
+|                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
+|                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 | RV64C                 |          C,Zca |    c.addiw |  c_addiw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
@@ -51,6 +58,7 @@ Coverpoints DV Un-privileged Basic:  2
 |                       |                |            |             | cp_rs2p_maxvals | RS2P Max values | Compliance Extended
 | RV64C                 |          C,Zca |     c.andi |   c_andi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
@@ -82,20 +90,19 @@ Coverpoints DV Un-privileged Basic:  2
 |                       |                |            |             | cp_rs1p_toggle | RS1P Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
 |                       |                |            |             | cp_rs1p_maxvals | RS1P Max values | Compliance Extended
-|                       |                |            |             | cr_rdp_rs1p | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rdp_rs1p | Compare register assignment | DV Un-privileged Basic
 | RV64C                 |          C,Zca |     c.ldsp |   c_ldsp_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca |       c.li |     c_li_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca |      c.lui |    c_lui_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca |       c.lw |     c_lw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |     cp_rs1p | RS1 (GPR) register assignment | Compliance Basic
@@ -103,11 +110,10 @@ Coverpoints DV Un-privileged Basic:  2
 |                       |                |            |             | cp_rs1p_toggle | RS1P Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rdp_maxvals | RDP Max values | Compliance Extended
 |                       |                |            |             | cp_rs1p_maxvals | RS1P Max values | Compliance Extended
-|                       |                |            |             | cr_rdp_rs1p | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rdp_rs1p | Compare register assignment | DV Un-privileged Basic
 | RV64C                 |          C,Zca |     c.lwsp |   c_lwsp_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca |       c.mv |     c_mv_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs2 | RS2 (GPR) register assignment | Compliance Basic
@@ -137,7 +143,6 @@ Coverpoints DV Un-privileged Basic:  2
 | RV64C                 |          C,Zca |     c.slli |   c_slli_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV64C                 |          C,Zca |     c.srai |   c_srai_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |      cp_rdp | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rdp_toggle | RDP Toggle bits | Compliance Extended

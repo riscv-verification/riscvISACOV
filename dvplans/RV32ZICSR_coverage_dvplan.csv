@@ -14,7 +14,6 @@ RV32ZICSR,,csrrci,,csrrci_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZICSR,,csrrs,,csrrs_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -27,7 +26,6 @@ RV32ZICSR,,csrrsi,,csrrsi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZICSR,,csrrw,,csrrw_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -40,4 +38,3 @@ RV32ZICSR,,csrrwi,,csrrwi_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd_toggle,RD Toggle bits,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_rd_maxvals,RD Max values,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage

@@ -48,22 +48,42 @@
 //////////////////////////
 // Uncomment (or use a +define) one of these (higher cover levels enable lower levels):
 
-// Compliance Basic
+// Level 0 - Compliance Basic
 //`define COVER_LEVEL_COMPL_BAS
+  // This coverage level enables the following coverage types:
+    // `define COVER_TYPE_ASM_COUNT
+    // `define COVER_TYPE_ASSIGNMENTS
+    // `define COVER_TYPE_CSR_VALUE
+    // `define COVER_TYPE_FRM
+    // `define COVER_TYPE_SIGNS
+    // `define COVER_TYPE_VALUES
+    // `define COVER_TYPE_ILLEGAL_INST
 
-// Compliance Extended
+// Level 1 - Compliance Extended
 //`define COVER_LEVEL_COMPL_EXT
+  // This coverage level enables the following coverage types:
+    // `define COVER_TYPE_CROSS_VALUES
+    // `define COVER_TYPE_EQUAL
+    // `define COVER_TYPE_FAULTS
+    // `define COVER_TYPE_MAXVALS
+    // `define COVER_TYPE_REG_COMPARE
+    // `define COVER_TYPE_TOGGLE
 
-// DV Un-privileged Basic
+// Level 2 - DV Un-privileged Basic
 //`define COVER_LEVEL_DV_UP_BAS
+  // This coverage level enables the following coverage types:
+    // `define COVER_TYPE_CSR
+    // `define COVER_TYPE_METRIC
+    // `define COVER_TYPE_FPVALUES
+    // `define COVER_TYPE_HAZARD
 
-// DV Un-privileged Extended
+// Level 3 - DV Un-privileged Extended
 //`define COVER_LEVEL_DV_UP_EXT
 
-// DV Privileged Basic
+// Level 4 - DV Privileged Basic
 //`define COVER_LEVEL_DV_PR_BAS
 
-// DV Privileged Extended
+// Level 5 - DV Privileged Extended
 //`define COVER_LEVEL_DV_PR_EXT
 
 

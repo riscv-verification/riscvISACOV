@@ -1,0 +1,220 @@
+RV64A,A Standard Extension for Atomic Instructions,2.1
+xlen,64
+""
+Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
+RV64A,,amoadd.d,,amoadd_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoadd.d.aq,,amoadd_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoadd.d.aqrl,,amoadd_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoadd.d.rl,,amoadd_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoand.d,,amoand_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoand.d.aq,,amoand_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoand.d.aqrl,,amoand_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoand.d.rl,,amoand_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomax.d,,amomax_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomax.d.aq,,amomax_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomax.d.aqrl,,amomax_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomax.d.rl,,amomax_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomaxu.d,,amomaxu_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomaxu.d.aq,,amomaxu_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomaxu.d.aqrl,,amomaxu_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomaxu.d.rl,,amomaxu_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomin.d,,amomin_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomin.d.aq,,amomin_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomin.d.aqrl,,amomin_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amomin.d.rl,,amomin_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amominu.d,,amominu_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amominu.d.aq,,amominu_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amominu.d.aqrl,,amominu_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amominu.d.rl,,amominu_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoor.d,,amoor_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoor.d.aq,,amoor_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoor.d.aqrl,,amoor_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoor.d.rl,,amoor_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoswap.d,,amoswap_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoswap.d.aq,,amoswap_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoswap.d.aqrl,,amoswap_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoswap.d.rl,,amoswap_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoxor.d,,amoxor_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoxor.d.aq,,amoxor_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoxor.d.aqrl,,amoxor_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,amoxor.d.rl,,amoxor_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,lr.d,,lr_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,lr.d.aq,,lr_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,lr.d.aqrl,,lr_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,lr.d.rl,,lr_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,sc.d,,sc_d_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,sc.d.aq,,sc_d_aq_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,sc.d.aqrl,,sc_d_aqrl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV64A,,sc.d.rl,,sc_d_rl_cg,,,,,,
+,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs2,RS2 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

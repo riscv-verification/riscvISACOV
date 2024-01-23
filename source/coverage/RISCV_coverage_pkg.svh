@@ -30,7 +30,7 @@ import idvApiPkg::*;
 `include "coverage/RISCV_coverage_common.svh"
 `include "coverage/RISCV_trace_data.svh"
 
-
+`include "coverage/RISCV_config_checks.svh"
 `include "coverage/RISCV_instruction_base.svh"
 
 `include "coverage/RISCV_coverage_base.svh"

@@ -66,6 +66,7 @@ RV32ZBB,"B,Zbb,Zbp,Zbkb",rori,"Rotate Right, immediate",rori_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rs1,RS1 (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_imm_ones_zeros,Immediate value ones and zeros,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_imm_sign,Immediate value sign,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZBB,"B,Zbb",sext.b,Sign-extend byte,sext_b_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
