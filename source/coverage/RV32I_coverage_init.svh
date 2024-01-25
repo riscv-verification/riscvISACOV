@@ -1,5 +1,5 @@
 //  
-// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com  
+// Copyright (c) 2024 Imperas Software Ltd., www.imperas.com  
 //   
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0  
 //  
@@ -58,6 +58,7 @@
     sw_cg = new(); sw_cg.set_inst_name("obj_sw");
     xor_cg = new(); xor_cg.set_inst_name("obj_xor");
     xori_cg = new(); xori_cg.set_inst_name("obj_xori");
+
 
 
 

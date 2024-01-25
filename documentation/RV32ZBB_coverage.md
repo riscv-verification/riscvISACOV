@@ -7,8 +7,8 @@ XLEN:          32
 
 Instructions:  18  
 Covergroups:   18  
-Coverpoints total:   64  
-Coverpoints Compliance Basic:  64  
+Coverpoints total:   65  
+Coverpoints Compliance Basic:  65  
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
 | ----------| ------ | ---------- | ---------- | -------------- | ---------------------- | ----------------- |
@@ -62,6 +62,7 @@ Coverpoints Compliance Basic:  64
 | RV32ZBB               | B,Zbb,Zbp,Zbkb |       rori |     rori_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 | RV32ZBB               |          B,Zbb |     sext.b |   sext_b_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic

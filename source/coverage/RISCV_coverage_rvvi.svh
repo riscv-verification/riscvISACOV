@@ -1,5 +1,5 @@
 //  
-// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com  
+// Copyright (c) 2024 Imperas Software Ltd., www.imperas.com  
 //   
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0  
 //  
@@ -134,7 +134,7 @@
   
   endfunction
 
-function int csrs_changed(int hart, int issue);
+function int csrs_written(int hart, int issue);
     return traceDataQ[hart][issue][0].csr_wb != 0;
 endfunction
 

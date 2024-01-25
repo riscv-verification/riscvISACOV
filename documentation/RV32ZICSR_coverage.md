@@ -7,9 +7,9 @@ XLEN:          32
 
 Instructions:  6  
 Covergroups:   6  
-Coverpoints total:   33  
+Coverpoints total:   30  
 Coverpoints Compliance Basic:  15  
-Coverpoints Compliance Extended:  18  
+Coverpoints Compliance Extended:  15  
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
 | ----------| ------ | ---------- | ---------- | -------------- | ---------------------- | ----------------- |
@@ -23,7 +23,6 @@ Coverpoints Compliance Extended:  18
 | RV32ZICSR             |                |     csrrci |   csrrci_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV32ZICSR             |                |      csrrs |    csrrs_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
@@ -34,7 +33,6 @@ Coverpoints Compliance Extended:  18
 | RV32ZICSR             |                |     csrrsi |   csrrsi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 | RV32ZICSR             |                |      csrrw |    csrrw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
@@ -45,6 +43,5 @@ Coverpoints Compliance Extended:  18
 | RV32ZICSR             |                |     csrrwi |   csrrwi_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
-|                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 
 

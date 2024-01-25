@@ -21,9 +21,9 @@ RV32ZFINX,"F,Zfinx",fadd.s,,fadd_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fclass.s,,fclass_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -112,9 +112,9 @@ RV32ZFINX,"F,Zfinx",fdiv.s,,fdiv_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",feq.s,,feq_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_rd,RD (GPR) register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -126,7 +126,7 @@ RV32ZFINX,"F,Zfinx",feq.s,,feq_s_cg,,,,,,
 ,,,,,cp_fs2_vals,FS2 FPU Special values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_fs1,RD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fle.s,,fle_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -139,7 +139,7 @@ RV32ZFINX,"F,Zfinx",fle.s,,fle_s_cg,,,,,,
 ,,,,,cp_fs2_vals,FS2 FPU Special values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_fs1,RD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",flt.s,,flt_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -152,7 +152,7 @@ RV32ZFINX,"F,Zfinx",flt.s,,flt_s_cg,,,,,,
 ,,,,,cp_fs2_vals,FS2 FPU Special values,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_rd_fs1,RD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fmadd.s,,fmadd_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -177,11 +177,10 @@ RV32ZFINX,"F,Zfinx",fmadd.s,,fmadd_s_cg,,,,,,
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs3_vals,FS3 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs3,FD FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs3,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fmax.s,,fmax_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -193,9 +192,9 @@ RV32ZFINX,"F,Zfinx",fmax.s,,fmax_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fmin.s,,fmin_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -207,9 +206,9 @@ RV32ZFINX,"F,Zfinx",fmin.s,,fmin_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fmsub.s,,fmsub_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -233,11 +232,10 @@ RV32ZFINX,"F,Zfinx",fmsub.s,,fmsub_s_cg,,,,,,
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs3_vals,FS3 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs3,FD FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs3,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fmul.s,,fmul_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -257,9 +255,9 @@ RV32ZFINX,"F,Zfinx",fmul.s,,fmul_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fnmadd.s,,fnmadd_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -283,11 +281,10 @@ RV32ZFINX,"F,Zfinx",fnmadd.s,,fnmadd_s_cg,,,,,,
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs3_vals,FS3 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs3,FD FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs3,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fnmsub.s,,fnmsub_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -311,11 +308,10 @@ RV32ZFINX,"F,Zfinx",fnmsub.s,,fnmsub_s_cg,,,,,,
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs3_vals,FS3 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs3,FD FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2_fs3,FS1 FS2 FS3 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs3,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fsgnj.s,,fsgnj_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -327,9 +323,9 @@ RV32ZFINX,"F,Zfinx",fsgnj.s,,fsgnj_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fsgnjn.s,,fsgnjn_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -341,9 +337,9 @@ RV32ZFINX,"F,Zfinx",fsgnjn.s,,fsgnjn_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fsgnjx.s,,fsgnjx_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -355,9 +351,9 @@ RV32ZFINX,"F,Zfinx",fsgnjx.s,,fsgnjx_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fsqrt.s,,fsqrt_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -373,7 +369,7 @@ RV32ZFINX,"F,Zfinx",fsqrt.s,,fsqrt_s_cg,,,,,,
 ,,,,,cr_fs1_frm,FS1 FRM (ins rounding mode) Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
 RV32ZFINX,"F,Zfinx",fsub.s,,fsub_s_cg,,,,,,
 ,,,,,cp_asm_count,Number of times instruction is executed,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_fd,FD register assignment,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
@@ -393,6 +389,6 @@ RV32ZFINX,"F,Zfinx",fsub.s,,fsub_s_cg,,,,,,
 ,,,,,cr_fd_vals,FD FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs1_vals,FS1 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cr_fs2_vals,FS2 FPU values Cross,DV Un-privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs1,FD FS1 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fd_fs2,FD FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cr_fs1_fs2,FS1 FS2 Cross,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs1,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fd_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cmp_fs1_fs2,Compare register assignment,Compliance Extended,Check against Reference Model,Constrained-Random,Functional Coverage

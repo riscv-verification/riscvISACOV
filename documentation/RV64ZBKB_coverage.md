@@ -7,8 +7,8 @@ XLEN:          64
 
 Instructions:  13  
 Covergroups:   13  
-Coverpoints total:   51  
-Coverpoints Compliance Basic:  51  
+Coverpoints total:   53  
+Coverpoints Compliance Basic:  53  
 
 | Extension | Subset | Instruction| Covergroup | Coverpoint     | Coverpoint Description | Coverpoint Level  |
 | ----------| ------ | ---------- | ---------- | -------------- | ---------------------- | ----------------- |
@@ -50,10 +50,12 @@ Coverpoints Compliance Basic:  51
 | RV64ZBKB              | B,Zbb,Zbp,Zbkb |       rori |     rori_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 | RV64ZBKB              |     B,Zbb,Zbkb |      roriw |    roriw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 | RV64ZBKB              |     B,Zbb,Zbkb |       rorw |     rorw_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic

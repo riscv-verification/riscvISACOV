@@ -1,6 +1,6 @@
 # riscvISACOV Change log
 //  
-// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com  
+// Copyright (c) 2024 Imperas Software Ltd., www.imperas.com  
 //   
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0  
 //  
@@ -24,8 +24,15 @@
 This CHANGELOG contains information for the riscvISACOV functional coverage files.  
 
 ---
-Date 2023-October-27 
-Release 20231016.0 
+Date 2024-January-24 
+Release 20240124.0 
+
+Added Atomic instruction extension
+Added c.addi16sp and c.addi4spn instructions that were missing
+
+---
+Date 2023-October-30 
+Release 20231026.0 
 
 Fixed bug in Zfinx such that it now uses GPR registers in the coverage.
 

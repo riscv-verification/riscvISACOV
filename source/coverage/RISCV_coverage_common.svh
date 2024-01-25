@@ -1,5 +1,5 @@
 //  
-// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com  
+// Copyright (c) 2024 Imperas Software Ltd., www.imperas.com  
 //   
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0  
 //  
@@ -29,36 +29,11 @@
 // Check that only one COVER_BASE_* is set
 `ifdef COVER_BASE_RV32I
     `define COVER_XLEN_32
-    `ifdef COVER_BASE_RV32E
-        msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV32E!"));
-    `else 
-       `ifdef COVER_BASE_RV64I
-          msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64I!"));
-        `endif
-        `ifdef COVER_BASE_RV64E
-          msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32I and COVER_BASE_RV64E!"));
-        `endif
-    `endif
 `else 
     `ifdef COVER_BASE_RV32E
         `define COVER_XLEN_32
-        `ifdef COVER_BASE_RV64I
-            msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64I!"));
-        `endif
-        `ifdef COVER_BASE_RV64E
-            msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV32E and COVER_BASE_RV64E!"));
-        `endif
     `else 
         `define COVER_XLEN_64
-        `ifdef COVER_BASE_RV64I
-            `ifdef COVER_BASE_RV64E
-                msgfatal($sformatf("Fatal error: Cannot select both COVER_BASE_RV64I and COVER_BASE_RV64E!"));
-            `endif
-        `else
-            `ifndef COVER_BASE_RV64E
-                msgfatal($sformatf("Fatal error: No Base ISA (COVER_BASE_*) selected!"));
-            `endif
-        `endif
     `endif
 `endif
 
@@ -120,6 +95,36 @@
   `endif
 `endif
 
+`ifdef COVER_LEVEL_COMPL_BAS
+    `define COVER_TYPE_ASM_COUNT
+    `define COVER_TYPE_ASSIGNMENTS
+    `define COVER_TYPE_CSR_VALUE
+    `define COVER_TYPE_FRM
+    `define COVER_TYPE_SIGNS
+    `define COVER_TYPE_VALUES
+    `define COVER_TYPE_ILLEGAL_INST
+`endif
+`ifdef COVER_LEVEL_COMPL_EXT
+    `define COVER_TYPE_CROSS_VALUES
+    `define COVER_TYPE_EQUAL
+    `define COVER_TYPE_FAULTS
+    `define COVER_TYPE_MAXVALS
+    `define COVER_TYPE_REG_COMPARE
+    `define COVER_TYPE_TOGGLE
+`endif
+`ifdef COVER_LEVEL_DV_UP_BAS
+    `define COVER_TYPE_CSR
+    `define COVER_TYPE_METRIC
+    `define COVER_TYPE_FPVALUES
+    `define COVER_TYPE_HAZARD
+`endif
+`ifdef COVER_LEVEL_DV_UP_EXT
+`endif
+`ifdef COVER_LEVEL_DV_PR_BAS
+`endif
+`ifdef COVER_LEVEL_DV_PR_EXT
+`endif
+
 `define SAMPLE_AFTER 0
 `define SAMPLE_BEFORE 1
 
@@ -132,8 +137,10 @@
 
 `ifdef COVER_XLEN_32
     `define XLEN_INT int
+    `define XLEN_UINT int unsigned
 `else
     `define XLEN_INT longint
+    `define XLEN_UINT longint unsigned
 `endif
 
 typedef struct { 

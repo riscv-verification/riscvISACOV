@@ -34,9 +34,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |              M |       divu |     divu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -58,9 +58,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |        M,Zmmul |        mul |      mul_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -82,9 +82,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |        M,Zmmul |       mulh |     mulh_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -106,9 +106,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |        M,Zmmul |     mulhsu |   mulhsu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -130,9 +130,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |        M,Zmmul |      mulhu |    mulhu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -154,9 +154,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |              M |        rem |      rem_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -178,9 +178,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 | RV32M                 |              M |       remu |     remu_cg | cp_asm_count | Number of times instruction is executed | Compliance Basic
 |                       |                |            |             |       cp_rd | RD (GPR) register assignment | Compliance Basic
@@ -202,9 +202,9 @@ Coverpoints DV Un-privileged Basic:  64
 |                       |                |            |             | cmp_rd_rs1_eqval | Compare RD and RS1 register values | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eq | RD and RS2 register (assignment) WAR Hazard | DV Un-privileged Basic
 |                       |                |            |             | cmp_rd_rs2_eqval | Compare RD and RS2 register values | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
-|                       |                |            |             |   cr_rd_rs2 | Cross coverage of RD and RS2 register assignment | DV Un-privileged Basic
-|                       |                |            |             | cr_rd_rs1_rs2 | Cross coverage of RD, RS1, and RS2 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs2 | Compare register assignment | DV Un-privileged Basic
+|                       |                |            |             | cmp_rd_rs1_rs2 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 
 

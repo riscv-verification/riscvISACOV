@@ -1,5 +1,5 @@
 //  
-// Copyright (c) 2023 Imperas Software Ltd., www.imperas.com  
+// Copyright (c) 2024 Imperas Software Ltd., www.imperas.com  
 //   
 // SPDX-License-Identifier: Apache-2.0 WITH SHL-2.0  
 //  
@@ -30,7 +30,7 @@ import idvApiPkg::*;
 `include "coverage/RISCV_coverage_common.svh"
 `include "coverage/RISCV_trace_data.svh"
 
-
+`include "coverage/RISCV_config_checks.svh"
 `include "coverage/RISCV_instruction_base.svh"
 
 `include "coverage/RISCV_coverage_base.svh"

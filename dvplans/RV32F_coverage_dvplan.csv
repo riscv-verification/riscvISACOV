@@ -2,13 +2,13 @@ RV32F,F Standard Extension for Single-Precision Floating-Point,2.2
 xlen,32
 ""
 Extension,Subset,Instruction,Description,Covergroup,Coverpoint,Coverpoint Description,Coverage Level,Pass/Fail Criteria,Test Type,Coverage Method
-RV32F,,fcsr,F Standard Extension for Single-Precision Floating-Point,fcsr_cg,,,,,,
-,,,,,cp_fcsr_fflags,fcsr (CSR) field fflags,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-,,,,,cp_fcsr_frm,fcsr (CSR) field frm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32F,,fcsr,F Standard Extension for Single-Precision Floating-Point,csr_fcsr_cg,,,,,,
+,,,,,cp_csr_fcsr_fflags,fcsr (CSR) field fflags,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+,,,,,cp_csr_fcsr_frm,fcsr (CSR) field frm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32F,,fflags,F Standard Extension for Single-Precision Floating-Point,fflags_cg,,,,,,
-,,,,,cp_fflags_fflags,fflags (CSR) field fflags,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32F,,fflags,F Standard Extension for Single-Precision Floating-Point,csr_fflags_cg,,,,,,
+,,,,,cp_csr_fflags_fflags,fflags (CSR) field fflags,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage
-RV32F,,frm,F Standard Extension for Single-Precision Floating-Point,frm_cg,,,,,,
-,,,,,cp_frm_frm,frm (CSR) field frm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
+RV32F,,frm,F Standard Extension for Single-Precision Floating-Point,csr_frm_cg,,,,,,
+,,,,,cp_csr_frm_frm,frm (CSR) field frm,DV Privileged Basic,Check against Reference Model,Constrained-Random,Functional Coverage
 ,,,,,cp_wr_count,Number of times csr is written,Compliance Basic,Check against Reference Model,Constrained-Random,Functional Coverage

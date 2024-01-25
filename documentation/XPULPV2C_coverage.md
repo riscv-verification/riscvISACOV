@@ -7,8 +7,8 @@ XLEN:          32
 
 Instructions:  1  
 Covergroups:   1  
-Coverpoints total:   12  
-Coverpoints Compliance Basic:  6  
+Coverpoints total:   13  
+Coverpoints Compliance Basic:  7  
 Coverpoints Compliance Extended:  4  
 Coverpoints DV Un-privileged Basic:  2  
 
@@ -19,12 +19,13 @@ Coverpoints DV Un-privileged Basic:  2
 |                       |                |            |             |  cp_rd_sign | RD (GPR) sign of value | Compliance Basic
 |                       |                |            |             |      cp_rs1 | RS1 (GPR) register assignment | Compliance Basic
 |                       |                |            |             | cp_rs1_sign | RS1 (GPR) sign of value | Compliance Basic
+|                       |                |            |             | cp_imm_ones_zeros | Immediate value ones and zeros | Compliance Basic
 |                       |                |            |             | cp_imm_sign | Immediate value sign | Compliance Basic
 |                       |                |            |             | cp_rd_toggle | RD Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rd_maxvals | RD Max values | Compliance Extended
 |                       |                |            |             | cp_rs1_toggle | RS1 Toggle bits | Compliance Extended
 |                       |                |            |             | cp_rs1_maxvals | RS1 Max values | Compliance Extended
-|                       |                |            |             |   cr_rd_rs1 | Cross coverage of RD and RS1 register assignment | DV Un-privileged Basic
+|                       |                |            |             |  cmp_rd_rs1 | Compare register assignment | DV Un-privileged Basic
 |                       |                |            |             | cp_gpr_hazard |  GPR Hazard | DV Un-privileged Basic
 
 
